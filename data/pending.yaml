@@ -1,2 +1,28 @@
 # Managed by cvtool.update: entries proposed in the last update PR.
-[]
+
+- id: williams2020combining
+  title: Combining tensor decomposition and time warping models for multi-neuronal spike train analysis
+  doi: 10.1101/2020.03.02.974014
+
+- id: sorokin2020thalamic
+  title: Thalamic activity patterns unfolding over multiple time scales predict seizure onset in absence epilepsy
+  doi: 10.1101/2020.03.04.976688
+
+- id: nayebi2021explaining
+  title: Explaining heterogeneity in medial entorhinal cortex with task-driven neural networks
+
+- id: larsen2024tensor
+  title: 'Tensor Decomposition Meets RKHS: Efficient Algorithms for Smooth and Misaligned Data'
+  doi: 10.48550/arxiv.2408.05677
+
+- id: zheng2025labels
+  title: 'From labels to latents: revealing state-dependent hippocampal computations with Jump Latent Variable Model'
+  doi: 10.64898/2025.12.14.694183
+
+- id: hosseini2026modulating
+  title: Modulating Cross-Modal Convergence with Single-Stimulus, Intra-Modal Dispersion
+  doi: 10.48550/arxiv.2604.21836
+
+- id: zempolich2026shared
+  title: A shared cortical manifold links sensory error to motor planning
+  doi: 10.64898/2026.08.02.742317

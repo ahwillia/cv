@@ -10,6 +10,14 @@
 #   url:     link printed as [paper]; journals fall back to the DOI.
 #   link_label: text of that link, if not "paper" (e.g. "preprint").
 
+- id: nayebi2021explaining
+  type: conference
+  authors: [Nayebi A, Attinger A, Campbell M, Hardcastle K, Low I, Mallory CS, Mel G, Sorscher B, Williams AH, Ganguli S, Giocomo LM, Yamins DLK]
+  year: 2021
+  title: Explaining heterogeneity in medial entorhinal cortex with task-driven neural networks
+  venue: NeurIPS
+  url: https://proceedings.neurips.cc/paper/2021/hash/656f0dbf9392657eed7feefc486781fb-Abstract.html
+
 - id: khosla-privileged-axes
   type: journal
   authors: [Khosla M, Williams AH, McDermott J, Kanwisher N]
@@ -358,6 +366,60 @@
   doi: 10.1152/jn.01010.2012
 
 # ---------------------------------------------------------------- preprints
+
+- id: zempolich2026shared
+  type: preprint
+  authors: [Zempolich G, Zhou W, Holey BE, Williams AH, Schneider DM]
+  year: 2026
+  title: A shared cortical manifold links sensory error to motor planning
+  venue: bioRxiv
+  details: 2026.08.02.742317
+  doi: 10.64898/2026.08.02.742317
+
+- id: hosseini2026modulating
+  type: preprint
+  authors: [Hosseini EA, Cheung B, Fedorenko EG, Williams AH]
+  year: 2026
+  title: Modulating Cross-Modal Convergence with Single-Stimulus, Intra-Modal Dispersion
+  venue: arXiv
+  details: '2604.21836'
+  doi: 10.48550/arxiv.2604.21836
+
+- id: zheng2025labels
+  type: preprint
+  authors: [Zheng Z, Zutshi I, Huszár R, Zhang Y, Karadas M, Buzsáki G, Williams AH]
+  year: 2025
+  title: 'From labels to latents: revealing state-dependent hippocampal computations with Jump Latent Variable Model'
+  venue: bioRxiv
+  details: 2025.12.14.694183
+  doi: 10.64898/2025.12.14.694183
+
+- id: larsen2024tensor
+  type: preprint
+  authors: [Larsen BW, Kolda TG, Zhang AR, Williams AH]
+  year: 2024
+  title: 'Tensor Decomposition Meets RKHS: Efficient Algorithms for Smooth and Misaligned Data'
+  venue: arXiv
+  details: '2408.05677'
+  doi: 10.48550/arxiv.2408.05677
+
+- id: sorokin2020thalamic
+  type: preprint
+  authors: [Sorokin JM, Williams AH, Ganguli S, Huguenard JR]
+  year: 2020
+  title: Thalamic activity patterns unfolding over multiple time scales predict seizure onset in absence epilepsy
+  venue: bioRxiv
+  details: 2020.03.04.976688
+  doi: 10.1101/2020.03.04.976688
+
+- id: williams2020combining
+  type: preprint
+  authors: [Williams AH]
+  year: 2020
+  title: Combining tensor decomposition and time warping models for multi-neuronal spike train analysis
+  venue: bioRxiv
+  details: 2020.03.02.974014
+  doi: 10.1101/2020.03.02.974014
 
 - id: garon2026fidelity
   type: preprint
