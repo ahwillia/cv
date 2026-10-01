@@ -221,8 +221,10 @@
 #pub-list("journal")
 #subsection("Conference Proceedings")
 #if profile.at("conference_note", default: none) != none {
+  // Pull the note up under the subheading (negative = closer).
+  v(-0.5em)
   block(sticky: true, inset: (x: 0.35in), below: 1.1em,
-    text(size: 9.5pt, par(justify: true, md(profile.conference_note))))
+    text(size: 9.5pt, style: "italic", fill: luma(30%), par(justify: true, md(profile.conference_note))))
 }
 #pub-list("conference")
 
