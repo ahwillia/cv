@@ -1,12 +1,15 @@
 """Reconcile data/publications.yaml against works found online.
 
 Sources (cvtool/sources/*) return normalized works:
-    {source, key, title, year, kind, venue, details, doi, authors}
-with kind one of journal | conference | preprint.
+    {source, key, title, year, kind, venue, details, doi, authors, url}
+with kind one of journal | conference | preprint. Conference venues are
+data/venues.yaml keys (NeurIPS, ICLR, ...).
 
 Produces three kinds of proposals:
   new        works not on the CV (added to publications.yaml)
   doi        missing DOIs for existing entries (filled in)
+  url        paper links for conference entries (filled in; an arXiv link is
+             replaced once a proceedings link exists)
   published  preprints / in-press entries that now have a published version
              (reported only; venue formatting is left to you)
 """
@@ -137,11 +140,21 @@ def new_entry(paper: Paper, taken: set[str]) -> CommentedMap:
     e["year"] = w["year"]
     e["title"] = w["title"]
     e["venue"] = w["venue"] or "TODO venue"
-    if w["details"]:
+    if w["details"] and w["kind"] != "conference":
         e["details"] = w["details"]
+    if url := conference_url(paper):
+        e["url"] = url
     if doi:
         e["doi"] = doi
     return e
+
+
+def conference_url(paper: Paper) -> str | None:
+    return next((w["url"] for w in paper.versions if w["kind"] == "conference" and w.get("url")), None)
+
+
+def is_arxiv(url) -> bool:
+    return "arxiv.org" in str(url or "")
 
 
 # ---------------------------------------------------------------- main entry
@@ -150,12 +163,13 @@ def new_entry(paper: Paper, taken: set[str]) -> CommentedMap:
 class Result:
     new: list = field(default_factory=list)           # CommentedMap entries added
     dois: list = field(default_factory=list)          # (entry, doi)
+    urls: list = field(default_factory=list)          # (entry, url)
     published: list = field(default_factory=list)     # (entry, work)
     auto_ignored: list = field(default_factory=list)  # titles
     warnings: list = field(default_factory=list)
 
     def changed(self) -> bool:
-        return bool(self.new or self.dois or self.auto_ignored)
+        return bool(self.new or self.dois or self.urls or self.auto_ignored)
 
 
 def published_doi_for(entry, paper: Paper) -> str | None:
@@ -192,6 +206,14 @@ def reconcile(entries, works, ignored, cfg) -> Result:
             if doi:
                 yamlio.append_field(e, "doi", doi)
                 res.dois.append((e, doi))
+
+        if e["type"] == "conference" and (not e.get("url") or is_arxiv(e["url"])):
+            if url := conference_url(p):
+                if "url" in e:
+                    e["url"] = url
+                else:
+                    yamlio.append_field(e, "url", url)
+                res.urls.append((e, url))
 
         if e["type"] == "preprint" or e.get("status"):
             pub = p.published()

@@ -111,7 +111,15 @@ def details_of(w: dict) -> str | None:
     return s
 
 
-def normalize(w: dict, cfg: dict, orcid: str, self_name: str) -> dict | None:
+def venue_key(venue: str | None, venues: dict) -> str | None:
+    """Map an OpenAlex venue name to a data/venues.yaml key, if any matches."""
+    for key, v in venues.items():
+        if venue and re.search(v["match"], venue, re.I):
+            return key
+    return None
+
+
+def normalize(w: dict, cfg: dict, orcid: str, self_name: str, venues: dict) -> dict | None:
     """OpenAlex record -> normalized work (see pubs.py), or None if filtered out."""
     title = re.sub(r"\s+", " ", w.get("title") or "").strip()
     venue = venue_of(w)
@@ -121,8 +129,9 @@ def normalize(w: dict, cfg: dict, orcid: str, self_name: str) -> dict | None:
     doi = doi_of(w)
     if is_preprint_doi(doi):
         kind = "preprint"
-    elif w["type"] == "conference-paper" or any(re.search(p, venue or "", re.I) for p in cfg["conference_venues"]):
+    elif w["type"] == "conference-paper" or venue_key(venue, venues):
         kind = "conference"
+        venue = venue_key(venue, venues) or venue
     else:
         kind = "journal"
     return {
@@ -135,4 +144,5 @@ def normalize(w: dict, cfg: dict, orcid: str, self_name: str) -> dict | None:
         "details": details_of(w),
         "doi": doi,
         "authors": authors_of(w, orcid, self_name),
+        "url": None,
     }

@@ -20,14 +20,16 @@
   authors: [Kapoor C, Williams AH, Khosla M]
   year: 2026
   title: Partial Soft-Matching Distance for Neural Representational Comparison with Partial Unit Correspondence
-  venue: International Conference on Learning Representations
+  venue: ICLR
+  url: https://arxiv.org/abs/2602.19331
 
 - id: martinez2026qmc
   type: conference
   authors: [Martinez M, Williams AH]
   year: 2026
   title: Quasi Monte Carlo methods enable extremely low-dimensional deep generative models
-  venue: International Conference on Learning Representations
+  venue: ICLR
+  url: https://proceedings.iclr.cc/paper_files/paper/2026/hash/684c59d614fe6ae74a3be8c3ef07e061-Abstract-Conference.html
 
 - id: hong2025color
   type: journal
@@ -42,36 +44,41 @@
   authors: [Geadah V, Nejatbakhsh A, Lipshutz D, Pillow JW, Williams AH]
   year: 2025
   title: Modeling Neural Activity with Conditionally Linear Dynamical Systems
-  venue: Advances in Neural Information Processing Systems
+  venue: NeurIPS
+  url: https://proceedings.neurips.cc/paper_files/paper/2025/hash/7f02b39c0424cc4a422994289ca03e46-Abstract-Conference.html
 
 - id: medvedeva2025connectivity
   type: conference
   authors: [Medvedeva A, Balzani E, Williams AH, Keeley SL]
   year: 2025
   title: Scalable inference of functional neural connectivity at submillisecond timescales
-  venue: Advances in Neural Information Processing Systems
+  venue: NeurIPS
+  url: https://proceedings.neurips.cc/paper_files/paper/2025/hash/25fdcf79265d5262632a4b6ab798b94c-Abstract-Conference.html
 
 - id: feather2025distortions
   type: conference
   authors: [Feather J, Lipshutz D, Harvey SE, Williams AH, Simoncelli EP]
   year: 2025
   title: Discriminating image representations with principal distortions
-  venue: International Conference on Learning Representations
+  venue: ICLR
+  url: https://openreview.net/forum?id=ugXGFCS6HK
 
 - id: nejatbakhsh2025noisy
   type: conference
   authors: [Nejatbakhsh A, Geadah V, Williams AH, Lipshutz D]
   year: 2025
   title: Comparing noisy neural population dynamics using optimal transport distances
-  venue: International Conference on Learning Representations
+  venue: ICLR
   note: Selected for oral presentation. Top ~1.8% of submissions.
+  url: https://openreview.net/forum?id=cNmu0hZ4CL
 
 - id: wu2025pose
   type: conference
   authors: [Wu JH, Koneru H, Ravenel JR, Sabath A, Roach JM, Lim SS, Tadross MR, Williams AH, Dunn TW]
   year: 2025
   title: Disentangling 3D Animal Pose Dynamics with Scrubbed Conditional Latent Variables
-  venue: International Conference on Learning Representations
+  venue: ICLR
+  url: https://openreview.net/forum?id=i7drKWhFCo
 
 - id: zutshi2025hippocampal
   type: journal
@@ -87,23 +94,25 @@
   authors: [Harvey SE, Lipshutz D, Williams AH]
   year: 2024
   title: What Representational Similarity Measures Imply about Decodable Information
-  venue: Proceedings of Machine Learning Research (Unifying Representations in Neural Models)
-  details: "PMLR 285:140-151, 2024"
+  venue: UniReps
+  url: https://proceedings.mlr.press/v285/harvey24a.html
 
 - id: williams2024equivalence
   type: conference
   authors: [Williams AH]
   year: 2024
   title: Equivalence between representational similarity analysis, centered kernel alignment, and canonical correlations analysis
-  venue: Proceedings of Machine Learning Research (Unifying Representations in Neural Models)
-  details: "PMLR 285:10-23, 2024"
+  venue: UniReps
+  url: https://proceedings.mlr.press/v285/williams24a.html
 
 - id: peterson2024vcl
   type: conference
   authors: [Peterson RE*, Tanelus A*, Ick CA, Mimica B, Francis MJN, Ivan VJ, Choudhri A, Falkner A, Murthy M, Schneider DM, Sanes DH, Williams AH]
   year: 2024
   title: Vocal Call Locator Benchmark (VCL'24) for localizing rodent vocalizations from multi-channel audio
-  venue: "Neural Information Processing Systems: Datasets & Benchmark"
+  venue: NeurIPS
+  track: Datasets and Benchmarks Track
+  url: https://proceedings.neurips.cc/paper_files/paper/2024/hash/c00d37d6b04d73b870b963a4d70051c1-Abstract-Datasets_and_Benchmarks_Track.html
 
 - id: zheng2024stepwise
   type: journal
@@ -118,21 +127,24 @@
   authors: [Harvey S, Larsen B, Williams AH]
   year: 2024
   title: Duality of Bures and Shape Distances with Implications for Comparing Neural Representations
-  venue: Proceedings of Machine Learning Research (Unifying Representations in Neural Models)
+  venue: UniReps
+  url: https://proceedings.mlr.press/v243/harvey24a.html
 
 - id: khosla2024softmatching
   type: conference
   authors: [Khosla M, Williams AH]
   year: 2024
   title: "Soft Matching Distance: A metric on neural representations that captures single-neuron tuning"
-  venue: Proceedings of Machine Learning Research (Unifying Representations in Neural Models)
+  venue: UniReps
+  url: https://proceedings.mlr.press/v243/khosla24a.html
 
 - id: pospisil2024shape
   type: conference
   authors: [Pospisil DA, Larsen BW, Harvey SE, Williams AH]
   year: 2024
   title: Estimating Shape Distances on Neural Representations with Limited Samples
-  venue: International Conference on Learning Representations (ICLR)
+  venue: ICLR
+  url: https://openreview.net/forum?id=kvByNnMERu
 
 - id: peterson2023gerbil
   type: journal
@@ -147,9 +159,9 @@
   authors: [Nejatbakhsh A, Garon I, Williams AH]
   year: 2023
   title: Estimating noise correlations in neural populations with Wishart processes
-  venue: Advances in Neural Information Processing Systems
-  details: "36, 54032-54045"
+  venue: NeurIPS
   alt_titles: [Estimating Noise Correlations Across Continuous Conditions With Wishart Processes]
+  url: https://proceedings.neurips.cc/paper_files/paper/2023/hash/a935ba2236c6ba0fb620f23354e789ff-Abstract-Conference.html
 
 - id: wang2023neymanscott
   type: journal
@@ -172,24 +184,24 @@
   authors: [Duong LR, Zhou J, Nassar J, Berman J, Olieslagers J, Williams AH]
   year: 2023
   title: Representational dissimilarity metric spaces for stochastic neural networks
-  venue: International Conference on Learning Representations
-  details: Kigali, Rwanda
+  venue: ICLR
+  url: https://openreview.net/forum?id=xjb563TH-GH
 
 - id: costacurta2022warhmm
   type: conference
   authors: [Costacurta JC, Duncker L, Sheffer B, Gillis W, Weinreb C, Markowitz JE, Datta SR, Williams AH, Linderman SW]
   year: 2022
   title: Distinguishing discrete and continuous behavioral variability using warped autoregressive HMMs
-  venue: Advances in Neural Information Processing Systems
-  details: "35, 23838-23850"
+  venue: NeurIPS
+  url: https://proceedings.neurips.cc/paper_files/paper/2022/hash/96b3aa81a9e593ca5e9b184756034a43-Abstract-Conference.html
 
 - id: williams2021shape
   type: conference
   authors: [Williams AH, Kunz E, Kornblith S, Linderman SW]
   year: 2021
   title: Generalized Shape Metrics on Neural Representations
-  venue: Advances in Neural Information Processing Systems
-  details: "34, 4738-4750"
+  venue: NeurIPS
+  url: https://proceedings.neurips.cc/paper/2021/hash/252a3dbaeb32e7690242ad3b556e626b-Abstract.html
 
 - id: williams2021singletrial
   type: journal
@@ -212,9 +224,9 @@
   authors: [Williams AH, Degleris A, Wang Y, Linderman SW]
   year: 2020
   title: Point process models for sequence detection in high-dimensional neural spike trains
-  venue: Advances in Neural Information Processing Systems
-  details: "33, 14350-14361"
+  venue: NeurIPS
   note: Selected for oral presentation. Top 105 of 9454 submissions.
+  url: https://proceedings.neurips.cc/paper/2020/hash/a5481cd6d7517aa3fc6476dc7d9019ab-Abstract.html
 
 - id: williams2020timewarp
   type: journal
@@ -237,17 +249,17 @@
   authors: [Maheswaranathan N*, Williams AH*, Golub MD, Ganguli S, Sussillo D]
   year: 2019
   title: Universality and individuality in neural dynamics across large populations of recurrent networks
-  venue: Advances in Neural Information Processing Systems
-  details: "32"
+  venue: NeurIPS
   note: Selected for spotlight talk. Top 200 of 6743 submissions.
+  url: https://proceedings.neurips.cc/paper/2019/hash/5f5d472067f77b5c88f69f1bcfda1e08-Abstract.html
 
 - id: maheswaranathan2019sentiment
   type: conference
   authors: [Maheswaranathan N*, Williams AH*, Golub MD, Ganguli S, Sussillo D]
   year: 2019
   title: Reverse engineering recurrent networks for sentiment classification reveals line attractor dynamics
-  venue: Neural Information Processing Systems
-  details: "32"
+  venue: NeurIPS
+  url: https://proceedings.neurips.cc/paper/2019/hash/d921c3c762b1522c475ac8fc0811bb0f-Abstract.html
 
 - id: williams2018tca
   type: journal

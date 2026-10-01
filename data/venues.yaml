@@ -1,0 +1,30 @@
+# Conference venues. Conference entries in publications.yaml use the key
+# (as DBLP abbreviates it) as `venue`; the CV prints "*name* (KEY)".
+# `match` (regex) maps venue names from OpenAlex to a key. First match wins.
+NeurIPS:
+  name: Advances in Neural Information Processing Systems
+  match: Neural Information Processing
+ICLR:
+  name: International Conference on Learning Representations
+  match: Learning Representations
+ICML:
+  name: International Conference on Machine Learning
+  match: International Conference on Machine Learning
+AISTATS:
+  name: International Conference on Artificial Intelligence and Statistics
+  match: Artificial Intelligence and Statistics
+UAI:
+  name: Conference on Uncertainty in Artificial Intelligence
+  match: Uncertainty in Artificial Intelligence
+COLT:
+  name: Conference on Learning Theory
+  match: Conference on Learning Theory
+CCN:
+  name: Conference on Cognitive Computational Neuroscience
+  match: Cognitive Computational Neuroscience
+UniReps:
+  name: Proceedings of Machine Learning Research (Unifying Representations in Neural Models)
+  match: Unifying Representations
+PMLR:
+  name: Proceedings of Machine Learning Research
+  match: Machine Learning Research

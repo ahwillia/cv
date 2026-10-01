@@ -10,6 +10,7 @@
 #let talks = yaml("/data/talks.yaml")
 #let service = yaml("/data/service.yaml")
 #let grants = yaml("/data/grants.yaml")
+#let venues = yaml("/data/venues.yaml")
 
 // ------------------------------------------------------------------ page setup
 
@@ -103,9 +104,20 @@
   let parts = ()
   parts.push(p.authors.map(author).join(", ") + [ (#when). ])
   parts.push([#p.title. ])
-  parts.push(emph(p.venue))
-  if get(p, "details") != none { parts.push([. #p.details]) }
-  parts.push([.])
+  if p.type == "conference" {
+    // Standard form: *Full Name[, Track]* (KEY). [paper]
+    let v = venues.at(p.venue, default: none)
+    let name = if v != none { v.name } else { p.venue }
+    if get(p, "track") != none { name += ", " + p.track }
+    parts.push(emph(name))
+    if v != none { parts.push([ (#p.venue)]) }
+    parts.push([.])
+    if get(p, "url") != none { parts.push([ #link(p.url)[\[paper\]]]) }
+  } else {
+    parts.push(emph(p.venue))
+    if get(p, "details") != none { parts.push([. #p.details]) }
+    parts.push([.])
+  }
   // DOIs are matching metadata; only blog posts print theirs.
   if p.type == "blog" and get(p, "doi") != none {
     let url = "https://doi.org/" + p.doi

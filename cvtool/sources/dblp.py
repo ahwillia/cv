@@ -16,7 +16,7 @@ USER_AGENT = "cv-maker/0.1 (https://github.com/ahwillia/cv)"
 
 QUERY = """
 PREFIX dblp: <https://dblp.org/rdf/schema#>
-SELECT ?pub ?type ?title ?year ?venue ?doi ?ord ?name ?creator WHERE {
+SELECT ?pub ?type ?title ?year ?venue ?doi ?page ?ord ?name ?creator WHERE {
   ?pub dblp:authoredBy <https://dblp.org/pid/%s> ;
        a ?type ; dblp:title ?title ; dblp:yearOfPublication ?year ;
        dblp:hasSignature ?sig .
@@ -25,6 +25,7 @@ SELECT ?pub ?type ?title ?year ?venue ?doi ?ord ?name ?creator WHERE {
   OPTIONAL { ?sig dblp:signatureCreator ?creator }
   OPTIONAL { ?pub dblp:publishedIn ?venue }
   OPTIONAL { ?pub dblp:doi ?doi }
+  OPTIONAL { ?pub dblp:primaryDocumentPage ?page }
 }
 """
 
@@ -50,15 +51,26 @@ def short_name(dblp_name: str) -> str:
     return f"{parts[-1]} {initials}"
 
 
+def paper_url(page: str | None) -> str | None:
+    """Landing page for the paper; old NeurIPS links are moved to the current host."""
+    if not page:
+        return None
+    return re.sub(r"^https?://papers\.nips\.cc/paper_files/", "https://proceedings.neurips.cc/paper_files/", page)
+
+
 def fetch(pid: str, self_name: str, venue_names: dict) -> list[dict]:
-    """Return normalized works (see pubs.py) for DBLP person `pid`."""
+    """Return normalized works (see pubs.py) for DBLP person `pid`.
+
+    Conference venues keep DBLP's abbreviation (NeurIPS, ICLR, ...), which is the
+    key into data/venues.yaml; journal abbreviations are expanded via `venue_names`."""
     me = f"https://dblp.org/pid/{pid}"
     pubs: dict[str, dict] = {}
     sigs: dict[str, dict[int, str]] = defaultdict(dict)
     for row in _query(QUERY % pid):
-        p = pubs.setdefault(row["pub"], row)
-        p.setdefault("venue", row.get("venue"))
-        p.setdefault("doi", row.get("doi"))
+        p = pubs.setdefault(row["pub"], dict(row))
+        for k in ("venue", "doi", "page"):  # OPTIONAL fields may be missing on some rows
+            if not p.get(k) and row.get(k):
+                p[k] = row[k]
         name = self_name if row.get("creator") == me else short_name(row["name"])
         sigs[row["pub"]][int(row["ord"])] = name
 
@@ -71,6 +83,8 @@ def fetch(pid: str, self_name: str, venue_names: dict) -> list[dict]:
             kind, venue = "preprint", "arXiv"
         else:
             kind = "conference" if kind == "Inproceedings" else "journal"
+            if kind == "journal":
+                venue = venue_names.get(venue, venue)
         arxiv = re.match(r"10\.48550/arxiv\.(.+)", doi or "")
         works.append({
             "source": "dblp",
@@ -78,9 +92,10 @@ def fetch(pid: str, self_name: str, venue_names: dict) -> list[dict]:
             "title": p["title"].rstrip("."),
             "year": int(p["year"]),
             "kind": kind,
-            "venue": venue_names.get(venue, venue),
+            "venue": venue,
             "details": arxiv.group(1) if arxiv else None,
             "doi": doi,
             "authors": [sigs[key][i] for i in sorted(sigs[key])],
+            "url": paper_url(p.get("page")) if kind == "conference" else None,
         })
     return works

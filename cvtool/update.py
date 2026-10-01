@@ -49,6 +49,8 @@ def fmt(e) -> str:
     s = f"**{KIND_LABEL.get(e['type'], e['type'])}.** {', '.join(e['authors'])} ({when}). {e['title']}. *{e['venue']}*"
     if e.get("details"):
         s += f". {e['details']}"
+    if e.get("url"):
+        s += f". [paper]({e['url']})"
     if e.get("doi"):
         s += f". [doi:{e['doi']}](https://doi.org/{e['doi']})"
     return s
@@ -81,6 +83,9 @@ def report(res: pubs.Result, gres: grants.Result) -> str:
             link = f", https://doi.org/{w['doi']}" if w["doi"] else ""
             out.append(f"- `{e['id']}` → {w['kind']}: *{w['venue']}* ({w['year']}){link} [{w['source']}]")
         out.append("")
+    if res.urls:
+        out += [f"### Paper links added ({len(res.urls)})", ""]
+        out += [f"- `{e['id']}` → {u}" for e, u in res.urls] + [""]
     if res.dois:
         out += [f"### DOIs filled in ({len(res.dois)})", ""]
         out += [f"- `{e['id']}` → `{d}`" for e, d in res.dois] + [""]
@@ -88,7 +93,7 @@ def report(res: pubs.Result, gres: grants.Result) -> str:
         out += [f"### Added to ignored.yaml ({len(res.auto_ignored)})", "",
                 "Proposed last time and removed before merging.", ""]
         out += [f"- {t}" for t in res.auto_ignored] + [""]
-    if not (res.new or res.published or res.dois or res.auto_ignored or gres.new or gres.changed):
+    if not (res.new or res.published or res.dois or res.urls or res.auto_ignored or gres.new or gres.changed):
         out.append("No changes.")
     return "\n".join(out)
 
@@ -112,13 +117,13 @@ def absorb_rejections(pub_entries, grant_entries, ignored, res: pubs.Result) -> 
         res.auto_ignored.append(p["title"])
 
 
-def fetch_all(profile, cfg, warnings: list) -> list[dict]:
+def fetch_all(profile, cfg, venues, warnings: list) -> list[dict]:
     """Normalized works from every configured source. A failing source is
     skipped with a warning: fewer proposals, but nothing wrong is proposed."""
     me = profile["author_name"]
     sources = {
         "OpenAlex": lambda: [n for w in openalex.fetch(profile["orcid"])
-                             if (n := openalex.normalize(w, cfg, profile["orcid"], me))],
+                             if (n := openalex.normalize(w, cfg, profile["orcid"], me, venues))],
     }
     if profile.get("dblp_pid"):
         sources["DBLP"] = lambda: dblp.fetch(profile["dblp_pid"], me, cfg["venue_names"])
@@ -154,9 +159,9 @@ def main() -> int:
     absorb_rejections(entries, grant_entries, ignored, res)
 
     if args.only != "grants":
-        works = fetch_all(profile, cfg, res.warnings)
+        works = fetch_all(profile, cfg, yamlio.load(DATA / "venues.yaml"), res.warnings)
         found = pubs.reconcile(entries, works, ignored, cfg)
-        res.new, res.dois, res.published = found.new, found.dois, found.published
+        res.new, res.dois, res.published, res.urls = found.new, found.dois, found.published, found.urls
         pubs.insert_new(entries, res.new)
 
     if args.only != "publications" and profile.get("nih_profile_id"):

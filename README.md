@@ -8,6 +8,8 @@ uv run python -m cvtool.build --png    # -> build/page-N.png previews
 ```
 
 Publications are grouped by `type`: journal, conference, preprint, blog.
+Conference papers use a key from `data/venues.yaml` as `venue` (printed as
+"*Full Name* (KEY)") plus a `url`, which the updater fills from DBLP.
 Fields documented as "Typst markup" accept `_italic_` and `*bold*`.
 On push to `main`, GitHub Actions rebuilds the PDF and attaches it to the `latest` release.
 
