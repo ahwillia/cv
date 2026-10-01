@@ -25,3 +25,7 @@ publications:
     TMLR: Transactions on Machine Learning Research
     "PLoS Comput. Biol.": PLoS Computational Biology
     "Neural Comput.": Neural Computation
+
+grants:
+  # Activity codes (regex) not proposed: F = fellowships, already under Awards.
+  exclude_mechanisms: "^F"

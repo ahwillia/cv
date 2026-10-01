@@ -9,6 +9,7 @@
 #let pubs = yaml("/data/publications.yaml")
 #let talks = yaml("/data/talks.yaml")
 #let service = yaml("/data/service.yaml")
+#let grants = yaml("/data/grants.yaml")
 
 // ------------------------------------------------------------------ page setup
 
@@ -51,6 +52,38 @@
 #let position(p) = {
   dated([*#p.role.* #p.org], get(p, "dates"))
   if get(p, "detail") != none { md(p.detail) }
+}
+
+#let year-range(g) = {
+  let (a, b) = (str(g.start).slice(0, 4), str(g.end).slice(0, 4))
+  if a == b { a } else { a + " – " + b }
+}
+
+#let commas(n) = {
+  let s = str(n)
+  let out = ""
+  for (i, c) in s.clusters().enumerate() {
+    if i > 0 and calc.rem(s.len() - i, 3) == 0 { out += "," }
+    out += c
+  }
+  out
+}
+
+#let grant(g) = {
+  dated(strong(g.title), year-range(g))
+  let role = if get(g, "detail") != none { md(g.detail) } else {
+    let others = g.at("with", default: ())
+    let extra = if g.role == "MPI" and get(g, "contact") != none {
+      " (Contact PI: " + g.contact + if others.len() > 0 { "; with " + others.join(", ") } else { "" } + ")"
+    } else if others.len() > 0 {
+      " (with " + others.join(", ") + ")"
+    } else { "" }
+    [Role: #g.role#extra.]
+  }
+  let amount = if profile.at("grants_show_amounts", default: false) and get(g, "amount") != none {
+    [ \$#commas(g.amount)]
+  }
+  [_#g.agency #g.id._ #role#amount]
 }
 
 #let month-year(s) = {
@@ -133,6 +166,12 @@
 
 #section("Awards and Fellowships")
 #for a in awards { dated(a.title, a.dates, right-style: "plain") }
+
+#section("Grants")
+#for (i, g) in grants.sorted(key: g => str(g.start)).rev().enumerate() {
+  if i > 0 { entry-gap }
+  grant(g)
+}
 
 #section("Teaching")
 #for t in teaching {

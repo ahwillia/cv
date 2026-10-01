@@ -68,7 +68,7 @@ jobs:
         with:
           branch: ${{ env.BRANCH }}
           add-paths: data/
-          commit-message: "CV update: publications from OpenAlex"
-          title: "CV update: publications"
+          commit-message: "CV update from OpenAlex, DBLP and NIH RePORTER"
+          title: "CV update"
           body-path: build/update-report.md
           delete-branch: true

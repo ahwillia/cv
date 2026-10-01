@@ -104,6 +104,8 @@ def match(paper: Paper, entries, threshold: float):
 
 def is_ignored(paper: Paper, ignored: list, threshold: float) -> bool:
     for ig in ignored or []:
+        if ig.get("grant"):
+            continue
         if {str(d).lower() for d in ig.get("dois") or []} & paper.dois:
             return True
         if ig.get("title") and any(similar(ig["title"], t) >= threshold for t in paper.titles):

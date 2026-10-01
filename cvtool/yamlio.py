@@ -34,10 +34,12 @@ def append_field(m, key, value) -> None:
         m.ca.items[key] = tok
 
 
-def save(path: Path, data) -> None:
+def save(path: Path, data, header: str | None = None) -> None:
     buf = io.StringIO()
     _yaml().dump(data, buf)
     text = buf.getvalue()
+    if header and not text.startswith("#"):
+        text = header.rstrip() + "\n\n" + text
     # Keep one blank line between top-level list entries.
     text = re.sub(r"(?<!\n)\n- id:", "\n\n- id:", text)
     path.write_text(text)

@@ -1,0 +1,51 @@
+# Grants, newest first. Entries with `source: nih` are kept in sync with
+# NIH RePORTER (end date, amount); add other funders by hand without `source`.
+#   role:    PI | Contact PI | MPI | Co-I | ...
+#   contact: contact PI when you are not; with: other PIs.
+#   start/end: "YYYY-MM". amount: total awarded to date (USD).
+#   detail:  optional Typst markup replacing the generated role line.
+
+- id: R01DA066648
+  title: Impacts of neural variability and noise on neural population codes
+  agency: NIH/NIDA
+  mechanism: R01
+  role: PI
+  start: 2026-09
+  end: 2029-06
+  amount: 411187
+  source: nih
+
+- id: U01DA063581
+  title: 'Computational Analyses of Family Auditory Communication: Linking Behavior, Vocalization, and Neural Dynamics'
+  agency: NIH/NIDA
+  mechanism: U01
+  role: MPI
+  contact: Dan Sanes
+  with: [Talmo Pereira, David Schneider]
+  start: 2026-03
+  end: 2030-12
+  amount: 854818
+  source: nih
+
+- id: R34DA059513
+  title: Computational attribution and fusion of vocalizations, social behavior, and neural recordings in a naturalistic environment
+  agency: NIH/NIDA
+  mechanism: R34
+  role: MPI
+  contact: Dan Sanes
+  with: [David Schneider]
+  start: 2024-02
+  end: 2027-01
+  amount: 703165
+  source: nih
+
+- id: RF1MH133778
+  title: Unified, Scalable, and Reproducible Neurostatistical Software
+  agency: NIH/NIMH
+  mechanism: RF1
+  role: Contact PI
+  with: [Scott Linderman]
+  start: 2023-07
+  end: 2027-07
+  amount: 2186881
+  source: nih
