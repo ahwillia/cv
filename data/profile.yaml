@@ -12,3 +12,12 @@ scholar:
   url: https://scholar.google.com/citations?user=7_GzzXMAAAAJ
   citations: 2776
   h_index: 23
+# Printed under "Conference Proceedings" (Typst markup).
+conference_note: >-
+  *Explanatory note:* The following are full-length, peer-reviewed articles
+  published in the proceedings of highly selective conferences (typically 8–10
+  pages of main text plus substantial appendices). Each submission is evaluated
+  by 3–5 reviewers, with author rebuttals and reviewer discussion before a
+  decision, and acceptance rates are typically around 25–30%. In machine learning
+  and computational neuroscience these proceedings are a primary venue for new
+  results; the articles are freely available online and are widely read and cited.
