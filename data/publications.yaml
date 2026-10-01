@@ -399,3 +399,5 @@
   title: Bits per spike as a betting game
   venue: NeuroStatsBlog
   doi: 10.5281/zenodo.20418560
+  arxiv: '2607.28779'
+  alt_titles: ['Bits per Spike as a Betting Game: An Interpretable Unit for Held-Out Log-Likelihood in Neural Data Analysis']

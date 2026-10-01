@@ -97,11 +97,20 @@
   if a.trim("*") == profile.author_name { strong(a) } else { a }
 }
 
-// Link printed after a citation: `url` if set, else the DOI (journals).
-#let paper-link(p) = {
-  let url = if get(p, "url") != none { p.url } else if p.type == "journal" and get(p, "doi") != none {
-    "https://doi.org/" + p.doi
+// Where a citation links to: `url` if set, else arXiv abstract page, else DOI.
+#let paper-url(p) = {
+  let doi = str(p.at("doi", default: ""))
+  let arxiv = if get(p, "arxiv") != none { str(p.arxiv) } else if doi.starts-with("10.48550/arxiv.") {
+    doi.slice(15)
   }
+  if get(p, "url") != none { p.url }
+  else if arxiv != none { "https://arxiv.org/abs/" + arxiv }
+  else if doi != "" { "https://doi.org/" + doi }
+}
+
+// " [paper]" link printed after journal, conference and preprint citations.
+#let paper-link(p) = {
+  let url = paper-url(p)
   if url != none {
     let label = p.at("link_label", default: "paper")
     [ #link(url)[\[#label\]]]
@@ -128,11 +137,10 @@
     if get(p, "details") != none { parts.push([. #p.details]) }
     parts.push([.])
   }
-  if p.type in ("journal", "conference") { parts.push(paper-link(p)) }
-  // DOIs are matching metadata; only blog posts print theirs.
-  if p.type == "blog" and get(p, "doi") != none {
-    let url = "https://doi.org/" + p.doi
-    parts.push([ #link(url, url)])
+  if p.type in ("journal", "conference", "preprint") { parts.push(paper-link(p)) }
+  // Blog posts print the full address, as on the original CV.
+  if p.type == "blog" and paper-url(p) != none {
+    parts.push([ #link(paper-url(p))])
   }
   if get(p, "note") != none { parts.push([ *[#p.note]*]) }
   par(spacing: 1.1em, parts.join())
