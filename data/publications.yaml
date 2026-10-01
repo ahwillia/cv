@@ -10,6 +10,15 @@
 #   url:     link printed as [paper]; journals fall back to the DOI.
 #   link_label: text of that link, if not "paper" (e.g. "preprint").
 
+- id: zempolich2026shared
+  type: journal
+  authors: [Zempolich G, Zhou W, Holey BE, Williams AH, Schneider DM]
+  status: In Press
+  title: A shared cortical manifold links sensory error to motor planning
+  venue: Nature Neuroscience
+  url: https://doi.org/10.64898/2026.08.02.742317
+  link_label: preprint
+
 - id: khosla-privileged-axes
   type: journal
   authors: [Khosla M, Williams AH, McDermott J, Kanwisher N]
