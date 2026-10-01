@@ -12,7 +12,7 @@
 
 - id: nayebi2021explaining
   type: conference
-  authors: [Nayebi A, Attinger A, Campbell M, Hardcastle K, Low I, Mallory CS, Mel G, Sorscher B, Williams AH, Ganguli S, Giocomo LM, Yamins DLK]
+  authors: [Nayebi A, Attinger A, Campbell MG, Hardcastle K, Low IIC, Mallory CS, Mel GC, Sorscher B, Williams AH, Ganguli S, Giocomo LM, Yamins DLK]
   year: 2021
   title: Explaining heterogeneity in medial entorhinal cortex with task-driven neural networks
   venue: NeurIPS
