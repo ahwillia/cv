@@ -1,4 +1,13 @@
 # Works the updater should never propose: {title, dois: [...], reason}.
 # Filled automatically when you delete a proposed entry from an update PR;
 # you can also add entries by hand.
-[]
+
+- title: Modulating Cross-Modal Convergence with Single-Stimulus, Intra-Modal Dispersion
+  dois:
+  - 10.48550/arxiv.2604.21836
+  reason: extended abstract, not a paper
+
+- title: Thalamic activity patterns unfolding over multiple time scales predict seizure onset in absence epilepsy
+  dois:
+  - 10.1101/2020.03.04.976688
+  reason: preprint that will not be published

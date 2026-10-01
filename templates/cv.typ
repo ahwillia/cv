@@ -153,6 +153,23 @@
   for p in sort-pubs(pubs.filter(p => p.type == kind)) { citation(p) }
 }
 
+// Explanatory note under a (sub)heading: indented, gray italics, pulled up close.
+#let pub-note(body) = {
+  v(-0.5em)
+  block(sticky: true, inset: (x: 0.35in), below: 1.1em,
+    text(size: 9.5pt, style: "italic", fill: luma(30%), par(justify: true, md(body))))
+}
+
+// A section of preprints in one `category`, with an optional note; omitted if empty.
+#let preprint-section(title, category, note: none) = {
+  let xs = pubs.filter(p => p.type == "preprint" and p.at("category", default: "in-prep") == category)
+  if xs.len() > 0 {
+    section(title)
+    if note != none { pub-note(note) }
+    for p in sort-pubs(xs) { citation(p) }
+  }
+}
+
 #let talk-list(xs) = {
   // Stable sort, newest first: same-month talks keep their file order.
   let key(t) = { let (y, m) = str(t.date).split("-").map(int); -(y * 12 + m) }
@@ -220,19 +237,20 @@
 #subsection("Journal Articles")
 #pub-list("journal")
 #subsection("Conference Proceedings")
-#if profile.at("conference_note", default: none) != none {
-  // Pull the note up under the subheading (negative = closer).
-  v(-0.5em)
-  block(sticky: true, inset: (x: 0.35in), below: 1.1em,
-    text(size: 9.5pt, style: "italic", fill: luma(30%), par(justify: true, md(profile.conference_note))))
-}
+#if profile.at("conference_note", default: none) != none { pub-note(profile.conference_note) }
 #pub-list("conference")
 
-#section("Preprints")
-#pub-list("preprint")
+#preprint-section("Manuscripts Under Review", "under-review",
+  note: profile.at("under_review_note", default: none))
+#preprint-section("Technical Reports (Not Peer Reviewed)", "report",
+  note: profile.at("report_note", default: none))
+#preprint-section("Other Manuscripts in Preparation (Not Peer Reviewed)", "in-prep",
+  note: profile.at("in_prep_note", default: none))
 
-#section("Blog Posts")
-#pub-list("blog")
+#if pubs.any(p => p.type == "blog") {
+  section("Blog Posts")
+  pub-list("blog")
+}
 
 #section("Conference and Workshop Talks")
 #talk-list(talks.conference)

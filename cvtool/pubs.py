@@ -146,6 +146,8 @@ def new_entry(paper: Paper, taken: set[str]) -> CommentedMap:
         e["url"] = url
     if doi:
         e["doi"] = doi
+    if w["kind"] == "preprint":
+        e["category"] = "in-prep"  # conservative default; the PR asks you to check it
     return e
 
 

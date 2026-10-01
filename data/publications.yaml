@@ -1,5 +1,8 @@
 # Publications, newest first within each year (sorted by year at build time).
 #   type:    journal | conference | preprint | blog
+#   category: (preprints) under-review | report | in-prep -> which section it is
+#            listed in: Manuscripts Under Review / Technical Reports / Other
+#            Manuscripts in Preparation. New preprints default to in-prep.
 #   authors: list in "Last Initials" form; append * for equal contribution.
 #   year:    integer; omit and set `status` (e.g. "In Press") for forthcoming work.
 #   details: volume/pages/IDs, printed after the venue.
@@ -376,15 +379,6 @@
 
 # ---------------------------------------------------------------- preprints
 
-- id: hosseini2026modulating
-  type: preprint
-  authors: [Hosseini EA, Cheung B, Fedorenko EG, Williams AH]
-  year: 2026
-  title: Modulating Cross-Modal Convergence with Single-Stimulus, Intra-Modal Dispersion
-  venue: arXiv
-  details: '2604.21836'
-  doi: 10.48550/arxiv.2604.21836
-
 - id: zheng2025labels
   type: preprint
   authors: [Zheng Z, Zutshi I, Huszár R, Zhang Y, Karadas M, Buzsáki G, Williams AH]
@@ -393,6 +387,8 @@
   venue: bioRxiv
   details: 2025.12.14.694183
   doi: 10.64898/2025.12.14.694183
+  category: under-review
+  note: Under review at Nature Neuroscience
 
 - id: larsen2024tensor
   type: preprint
@@ -402,15 +398,7 @@
   venue: arXiv
   details: '2408.05677'
   doi: 10.48550/arxiv.2408.05677
-
-- id: sorokin2020thalamic
-  type: preprint
-  authors: [Sorokin JM, Williams AH, Ganguli S, Huguenard JR]
-  year: 2020
-  title: Thalamic activity patterns unfolding over multiple time scales predict seizure onset in absence epilepsy
-  venue: bioRxiv
-  details: 2020.03.04.976688
-  doi: 10.1101/2020.03.04.976688
+  category: report
 
 - id: williams2020combining
   type: preprint
@@ -420,6 +408,7 @@
   venue: bioRxiv
   details: 2020.03.02.974014
   doi: 10.1101/2020.03.02.974014
+  category: report
 
 - id: garon2026fidelity
   type: preprint
@@ -430,6 +419,7 @@
   details: 2026.04.22.720005
   note: Under review at Neuron
   doi: 10.64898/2026.04.22.720005
+  category: under-review
 
 - id: he2026augmentation
   type: preprint
@@ -441,6 +431,7 @@
   arxiv: "2605.15306"
   note: Under review at NeurIPS
   doi: 10.48550/arxiv.2605.15306
+  category: under-review
 
 - id: barbosa2025shapemetrics
   type: preprint
@@ -450,16 +441,16 @@
   venue: bioRxiv
   details: 2025.01.10.632411
   doi: 10.1101/2025.01.10.632411
-
-# ---------------------------------------------------------------- blog posts
+  category: in-prep
 
 - id: williams2026bitsperspike
-  type: blog
+  type: preprint
   authors: [Williams AH]
   year: 2026
-  date_label: May, 2026
-  title: Bits per spike as a betting game
-  venue: NeuroStatsBlog
-  doi: 10.5281/zenodo.20418560
+  title: 'Bits per Spike as a Betting Game: An Interpretable Unit for Held-Out Log-Likelihood in Neural Data Analysis'
+  venue: arXiv
+  details: '2607.28779'
   arxiv: '2607.28779'
-  alt_titles: ['Bits per Spike as a Betting Game: An Interpretable Unit for Held-Out Log-Likelihood in Neural Data Analysis']
+  doi: 10.5281/zenodo.20418560
+  alt_titles: [Bits per spike as a betting game]
+  category: report

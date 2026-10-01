@@ -73,7 +73,9 @@ def report(res: pubs.Result, gres: grants.Result) -> str:
         out += [f"### New publications ({len(res.new)})", "",
                 "Found on OpenAlex/DBLP but not on the CV. **Delete any you don't want before merging** "
                 "and they won't be suggested again. Check author lists for equal-contribution `*` "
-                "and that the Journal/Conference/Preprint label is right (`type:` in the YAML).", ""]
+                "and that the Journal/Conference/Preprint label is right (`type:` in the YAML). "
+                "New preprints are listed under *Other Manuscripts in Preparation*; set "
+                "`category: under-review` or `category: report` to move them.", ""]
         out += [f"- [ ] `{e['id']}`: {fmt(e)}" for e in res.new] + [""]
     if res.published:
         out += [f"### Possibly published ({len(res.published)})", "",
@@ -103,7 +105,10 @@ def absorb_rejections(pub_entries, grant_entries, ignored, res: pubs.Result) -> 
     pending = yamlio.load(PENDING) or []
     pub_ids = {e["id"] for e in pub_entries}
     grant_ids = {str(e["id"]) for e in grant_entries}
+    already = {str(i.get("title")) for i in ignored}
     for p in pending:
+        if str(p["title"]) in already:  # removed by hand and already recorded
+            continue
         if "grant" in p:
             if p["grant"] in grant_ids:
                 continue

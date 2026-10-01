@@ -14,10 +14,16 @@ scholar:
   h_index: 23
 # Printed under "Conference Proceedings" (Typst markup).
 conference_note: >-
-  *Explanatory note:* The following are full-length, peer-reviewed articles
-  published in the proceedings of highly selective conferences (typically 8–10
+  The following are peer-reviewed articles
+  published in the proceedings of highly selective conferences (typically 8-10
   pages of main text plus substantial appendices). Each submission is evaluated
-  by 3–5 reviewers, with author rebuttals and reviewer discussion before a
+  by 3-5 reviewers, with author rebuttals and reviewer discussion before a
   decision, and acceptance rates are approximately 25%. In machine learning
   and computational neuroscience these proceedings are a primary venue for new
   results; the articles are freely available online and are widely read and cited.
+# Printed under "Technical Reports (Not Peer Reviewed)". Optional siblings:
+# under_review_note, in_prep_note.
+report_note: >-
+  The following technical reports are complete, final works made publicly
+  available for reference. They are not intended for submission to a journal or
+  conference and have not been peer reviewed.
