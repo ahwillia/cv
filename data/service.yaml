@@ -1,0 +1,17 @@
+# Academic duties & community involvement. `text` is Typst markup.
+- label: Department Service
+  text: Colloquium Committee (2023-2025), Neuroscience Lab Night Organizer (2024-2026), Community Building and Outreach Committee (2024-2026).
+- label: Conference Program Committees
+  text: Computational and Systems Neuroscience (COSYNE; 2024-2026), Statistical Analysis of Neural Data (SAND; 2025-present)
+- label: Conference Reviews
+  text: Neural Information Processing Systems (NeurIPS; 2018-2025), International Conference on Machine Learning (ICML; 2020-2021,2023-2025), International Conference on Learning Representations (ICLR; 2021, 2023), Computational and Systems Neuroscience (COSYNE; 2021, 2023).
+- label: Area Chair
+  text: NeurIPS (2026)
+- label: Journal Reviews
+  text: Nature, PNAS, Neuron, Nature Methods, Nature Neuroscience, Nature Reviews Neuroscience, Transactions on Machine Learning Research, Journal of Neuroscience Methods, SIAM Journal on Applied Dynamical Systems, eLife, Neural Computation, PLoS Comput Biol, Data Mining and Knowledge Discovery, NBDT (Neurons, Behavior, Data analysis, and Theory), Journal of Open-Source Software.
+- label: PhD Students supervised
+  text: Ralph Peterson (2022-2026), Sam Zheng (2022-2026), Elliott Capek (2022-), Isabel Garon (2023-), Argha Bandyopadhyay (2024-), Alisha Ahmed (2024-), Shujun Xiong (2025-), Kushal Kolar (2025-), Andrew Aoun (2025-)
+- label: PhD Committees (NYU)
+  text: Hee Jae Jang, Thomas Yerxa, Caroline Haimerl, Pedro Herraro Vidal, Yuki Fujishima, Brian (Jeong Woo) Kim, Christian Puzzo, Suha Chang, Benjamin Lyo, Grant Zempolich, Gabriel Yancy, Elisa Chinigo
+- label: PhD Committees (External)
+  text: Taiga Abe (Columbia), Denis Turcu (Columbia University), Matteo Alleman (Columbia University), Sezan Oral (Université du Luxembourg), Jiarui Ao (Weill Cornell Medicine)

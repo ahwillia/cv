@@ -1,0 +1,68 @@
+# date: "YYYY-MM" (quoted). `text` is Typst markup.
+# Sorted newest first at build time.
+
+conference:
+  - date: "2026-05"
+    text: CoNECTOME workshop, Keynote speaker. University of Washington. Seattle, WA.
+  - date: "2026-03"
+    text: Computational and Systems Neuroscience (COSYNE), Tutorial Session. Lisbon, PT.
+  - date: "2025-09"
+    text: Dartmouth Center for Cognitive Neuroscience, Workshop on Functional Alignment. Hanover, NH.
+  - date: "2025-08"
+    text: Computational Cognitive Neuroscience (CCN), Community Event on “Universality and Idiosyncrasy of Perceptual Representations.” Amsterdam.
+  - date: "2025-04"
+    text: "Second Workshop on Representational Alignment (Re²-Align). International Conference on Learning Representations (ICLR) in Singapore."
+  - date: "2024-10"
+    text: Flatiron Wide Algorithms and Mathematics (FWAM) Workshop. Flatiron Institute. New York, NY.
+  - date: "2024-09"
+    text: From Neuroscience to Artificially Intelligent Systems (NAISys) Workshop. Cold Spring Harbor Laboratories. Cold Spring Harbor, NY.
+  - date: "2024-08"
+    text: Computational Cognitive Neuroscience (CCN), Keynotes & Tutorials conference track. Massachusetts Institute of Technology. Cambridge, MA.
+  - date: "2024-06"
+    text: Simons Institute for the Theory of Computing, Workshop on Understanding Lower-level Intelligence from AI, Psychology, and Neuroscience. Berkeley, CA.
+  - date: "2024-05"
+    text: Gordon Research Conference, Neural Mechanisms of Acoustic Communication. Sunday River, Maine.
+  - date: "2024-04"
+    text: International Winter Neuroscience Conference. Sölden, Austria.
+  - date: "2024-02"
+    text: Labroots Neuroscience Virtual Event Series 2024. Virtual Seminar.
+  - date: "2023-10"
+    text: Open Data In Neuroscience (ODIN) conference. McGovern Institute, MIT. Cambridge, MA.
+  - date: "2023-10"
+    text: Bernstein Network Computational Neuroscience Conference, 2nd Workshop on Symmetry, Invariance and Neural Representations. Berlin, Germany.
+  - date: "2023-07"
+    text: Sampling Theory and Applications Conference (SAMPTA). Yale University. New Haven, CT.
+  - date: "2023-05"
+    text: New York University, Workshop on Dogmas of Memory. New York, New York.
+  - date: "2023-03"
+    text: Computational & Systems Neuroscience (Cosyne) Workshop on Taming Complexity & Discovering Interpretable Latent Spaces. Montreal, CA.
+  - date: "2022-03"
+    text: Computational & Systems Neuroscience (Cosyne) Workshops. Cascais, Portugal.
+  - date: "2022-01"
+    text: CUNY Graduate Center. Symposium on Dimensionality and Neural Dynamics. New York, New York.
+
+seminar:
+  - date: "2025-10"
+    text: University of Chicago, Committee on Computational Neuroscience. Chicago, IL.
+  - date: "2025-10"
+    text: UC San Diego Neurosciences Graduate Program (NGP) Seminar Series. San Diego, CA.
+  - date: "2025-10"
+    text: Rockefeller University. Center for Studies in Physics and Biology. New York, NY.
+  - date: "2025-05"
+    text: University College London. Gatsby Computational Neuroscience Unit. London, UK.
+  - date: "2025-05"
+    text: Cambridge University. Department of Engineering. Cambridge, UK.
+  - date: "2025-04"
+    text: Zuckerman Institute, Columbia University. Center for Theoretical Neuroscience. New York, NY.
+  - date: "2025-04"
+    text: State University of New York at Albany (SUNY Albany). Department of Psychology. Albany, NY.
+  - date: "2024-04"
+    text: Cold Spring Harbor Laboratories. CSHL NeuroAI Seminar Series. Cold Spring Harbor, NY.
+  - date: "2023-11"
+    text: SUNY Downstate Medical Center. Neuroscience Program. Brooklyn, NY.
+  - date: "2023-04"
+    text: Boston University. Mathematics & Statistics Department. Boston, MA.
+  - date: "2023-02"
+    text: University of Washington. Neuroscience Graduate Program Seminar Series. Seattle, WA.
+  - date: "2022-11"
+    text: New York University. Swartz Seminar Series on Theoretical Neuroscience. New York, New York.

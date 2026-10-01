@@ -1,0 +1,5 @@
+build/
+fonts/
+.venv/
+__pycache__/
+old_cv.pdf

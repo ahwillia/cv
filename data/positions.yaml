@@ -1,0 +1,32 @@
+# Fields `detail` and `note` are Typst markup (_italic_, *bold*).
+# Entries sharing a `group` are printed together without a gap.
+
+employment:
+  - group:
+      - role: Assistant Professor
+        org: New York University, Center for Neural Science. New York, NY
+        dates: Jan 2022 – present
+      - role: Project Leader & Associate Research Scientist
+        org: Flatiron Institute, Center for Computational Neuroscience. New York, NY
+      - role: Affiliate Faculty
+        org: New York University, Center for Data Science. New York, NY
+      - role: Associate Investigator
+        org: NYU Langone Health, Neuroscience Institute
+  - role: Postdoctoral Scholar
+    org: Stanford University, Department of Statistics. Stanford, CA
+    dates: June 2019 – Dec 2021
+    detail: "_Advisor: Scott Linderman_"
+
+other_appointments:
+  - role: Research Intern
+    org: Google Brain. Mountainview, CA
+    dates: June 2018 – May 2019
+    detail: "_Host: David Sussillo_"
+  - role: Visiting Researcher
+    org: Sandia National Laboratories. Livermore, CA
+    dates: June – Sept 2016
+    detail: "_Host: Tamara Kolda_"
+  - role: Research Technician
+    org: Brandeis University, Department of Biology. Waltham, MA
+    dates: 2012 – 2014
+    detail: "_Advisor: Eve Marder_"

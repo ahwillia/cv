@@ -1,0 +1,14 @@
+# `detail` and `note` are Typst markup.
+- school: Stanford University
+  location: Stanford, CA
+  dates: 2015-2019
+  detail: "PhD in Neurosciences. _Advisor: Surya Ganguli_"
+- school: University of California, San Diego
+  location: La Jolla, CA
+  dates: 2014-2015
+  detail: "Neurosciences Graduate Program. _Advisor: Terrence Sejnowski_"
+  note: "_(transferred to Stanford after one year)_"
+- school: Bowdoin College
+  location: Brunswick, ME
+  dates: 2008-2012
+  detail: "Bachelor of Arts in Neuroscience (_summa cum laude_, Minor: Computer Science)"

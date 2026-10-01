@@ -1,0 +1,39 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+
+      # Palatino isn't on Linux runners; TeX Gyre Pagella is a metric-compatible clone.
+      - name: Fetch fonts
+        run: |
+          mkdir -p fonts
+          curl -sSL -o pagella.zip https://www.gust.org.pl/projects/e-foundry/tex-gyre/pagella/qpl2_501otf.zip
+          unzip -j -o pagella.zip '*.otf' -d fonts
+
+      - run: uv run python -m cvtool.build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cv
+          path: build/cv.pdf
+
+      - name: Publish latest PDF
+        if: github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest build/cv.pdf --title "Latest CV" --notes "Built from ${{ github.sha }}"
