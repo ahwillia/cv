@@ -160,11 +160,11 @@
     text(size: 9.5pt, style: "italic", fill: luma(30%), par(justify: true, md(body))))
 }
 
-// A section of preprints in one `category`, with an optional note; omitted if empty.
+// A subsection of preprints in one `category`, with an optional note; omitted if empty.
 #let preprint-section(title, category, note: none) = {
   let xs = pubs.filter(p => p.type == "preprint" and p.at("category", default: "in-prep") == category)
   if xs.len() > 0 {
-    section(title)
+    subsection(title)
     if note != none { pub-note(note) }
     for p in sort-pubs(xs) { citation(p) }
   }
@@ -240,12 +240,15 @@
 #if profile.at("conference_note", default: none) != none { pub-note(profile.conference_note) }
 #pub-list("conference")
 
-#preprint-section("Manuscripts Under Review", "under-review",
-  note: profile.at("under_review_note", default: none))
-#preprint-section("Technical Reports (Not Peer Reviewed)", "report",
-  note: profile.at("report_note", default: none))
-#preprint-section("Other Manuscripts in Preparation (Not Peer Reviewed)", "in-prep",
-  note: profile.at("in_prep_note", default: none))
+#if pubs.any(p => p.type == "preprint") {
+  section("Other Manuscripts")
+  preprint-section("Manuscripts Under Review", "under-review",
+    note: profile.at("under_review_note", default: none))
+  preprint-section("Technical Reports", "report",
+    note: profile.at("report_note", default: none))
+  preprint-section("In Preparation", "in-prep",
+    note: profile.at("in_prep_note", default: none))
+}
 
 #if pubs.any(p => p.type == "blog") {
   section("Blog Posts")

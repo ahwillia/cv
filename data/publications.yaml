@@ -1,8 +1,8 @@
 # Publications, newest first within each year (sorted by year at build time).
 #   type:    journal | conference | preprint | blog
-#   category: (preprints) under-review | report | in-prep -> which section it is
-#            listed in: Manuscripts Under Review / Technical Reports / Other
-#            Manuscripts in Preparation. New preprints default to in-prep.
+#   category: (preprints) under-review | report | in-prep -> subsection of
+#            "Other Manuscripts": Manuscripts Under Review / Technical Reports /
+#            In Preparation. New preprints default to in-prep.
 #   authors: list in "Last Initials" form; append * for equal contribution.
 #   year:    integer; omit and set `status` (e.g. "In Press") for forthcoming work.
 #   details: volume/pages/IDs, printed after the venue.

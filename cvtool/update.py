@@ -74,7 +74,7 @@ def report(res: pubs.Result, gres: grants.Result) -> str:
                 "Found on OpenAlex/DBLP but not on the CV. **Delete any you don't want before merging** "
                 "and they won't be suggested again. Check author lists for equal-contribution `*` "
                 "and that the Journal/Conference/Preprint label is right (`type:` in the YAML). "
-                "New preprints are listed under *Other Manuscripts in Preparation*; set "
+                "New preprints are listed under *Other Manuscripts > In Preparation*; set "
                 "`category: under-review` or `category: report` to move them.", ""]
         out += [f"- [ ] `{e['id']}`: {fmt(e)}" for e in res.new] + [""]
     if res.published:
