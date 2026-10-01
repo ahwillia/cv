@@ -7,6 +7,8 @@
 #   doi / arxiv: used by the updater to match against OpenAlex/DBLP (not printed,
 #                except for blog posts).
 #   alt_titles: other titles the paper has appeared under (preprint, DBLP), for matching.
+#   url:     link printed as [paper]; journals fall back to the DOI.
+#   link_label: text of that link, if not "paper" (e.g. "preprint").
 
 - id: khosla-privileged-axes
   type: journal
@@ -14,6 +16,8 @@
   status: In Press
   title: Privileged representational axes in biological and artificial neural networks
   venue: Nature Human Behavior
+  url: https://doi.org/10.1101/2024.06.20.599957
+  link_label: preprint
 
 - id: kapoor2026partial
   type: conference
@@ -38,6 +42,7 @@
   title: Comprehensive characterization of human color discrimination thresholds
   venue: eLife
   details: "14:RP108943"
+  doi: 10.7554/elife.108943
 
 - id: geadah2025cllds
   type: conference
@@ -46,6 +51,7 @@
   title: Modeling Neural Activity with Conditionally Linear Dynamical Systems
   venue: NeurIPS
   url: https://proceedings.neurips.cc/paper_files/paper/2025/hash/7f02b39c0424cc4a422994289ca03e46-Abstract-Conference.html
+  doi: 10.52202/085713-2931
 
 - id: medvedeva2025connectivity
   type: conference
@@ -54,6 +60,7 @@
   title: Scalable inference of functional neural connectivity at submillisecond timescales
   venue: NeurIPS
   url: https://proceedings.neurips.cc/paper_files/paper/2025/hash/25fdcf79265d5262632a4b6ab798b94c-Abstract-Conference.html
+  doi: 10.52202/085713-0892
 
 - id: feather2025distortions
   type: conference
@@ -86,7 +93,6 @@
   year: 2025
   title: Hippocampal neuronal activity is aligned with action plans
   venue: Nature
-  details: doi:10.1038/s41586-024-08397-7
   doi: 10.1038/s41586-024-08397-7
 
 - id: harvey2024decodable
@@ -113,6 +119,7 @@
   venue: NeurIPS
   track: Datasets and Benchmarks Track
   url: https://proceedings.neurips.cc/paper_files/paper/2024/hash/c00d37d6b04d73b870b963a4d70051c1-Abstract-Datasets_and_Benchmarks_Track.html
+  doi: 10.52202/079017-3375
 
 - id: zheng2024stepwise
   type: journal
@@ -121,6 +128,7 @@
   title: Perpetual step-like restructuring of hippocampal circuit dynamics
   venue: Cell Reports
   details: "43(9): 114702"
+  doi: 10.1016/j.celrep.2024.114702
 
 - id: harvey2024bures
   type: conference
@@ -153,6 +161,7 @@
   title: Unsupervised discovery of family specific vocal usage in the Mongolian gerbil
   venue: eLife
   details: "12:RP89892"
+  doi: 10.7554/elife.89892
 
 - id: nejatbakhsh2023wishart
   type: conference
@@ -170,6 +179,7 @@
   title: Spatiotemporal clustering with neyman-scott processes via connections to bayesian nonparametric mixture models
   venue: Journal of the American Statistical Association
   details: "1-14"
+  doi: 10.1080/01621459.2023.2257896
 
 - id: low2023remapping-rnn
   type: journal
@@ -178,6 +188,7 @@
   title: Remapping in a recurrent neural network model of navigation and context inference
   venue: eLife
   details: "12:RP86943"
+  doi: 10.7554/elife.86943
 
 - id: duong2023stochastic
   type: conference
@@ -210,6 +221,7 @@
   title: Statistical Neuroscience in the Single Trial Limit
   venue: Current Opinions in Neurobiology
   details: "70: 193-205"
+  doi: 10.1016/j.conb.2021.10.008
 
 - id: low2021remapping
   type: journal
@@ -218,6 +230,7 @@
   title: Dynamic and reversible remapping of network representations in an unchanging environment
   venue: Neuron
   details: "109(18):2967-2980.e11"
+  doi: 10.1016/j.neuron.2021.07.005
 
 - id: williams2020ppseq
   type: conference
@@ -235,6 +248,7 @@
   title: Discovering precise temporal patterns in large-scale neural recordings through robust and interpretable time warping
   venue: Neuron
   details: "105(2):246-259.e8"
+  doi: 10.1016/j.neuron.2019.10.020
 
 - id: mackevicius2019seqnmf
   type: journal
@@ -243,6 +257,7 @@
   title: Unsupervised discovery of temporal sequences in high-dimensional datasets, with applications to neuroscience
   venue: eLife
   details: "8:e38471"
+  doi: 10.7554/elife.38471
 
 - id: maheswaranathan2019universality
   type: conference
@@ -268,6 +283,7 @@
   title: Unsupervised discovery of demixed, low-dimensional neural dynamics across multiple timescales through tensor components analysis
   venue: Neuron
   details: "98(6):1099–1115.e8"
+  doi: 10.1016/j.neuron.2018.05.015
 
 - id: williams2016dendritic
   type: journal
@@ -276,6 +292,7 @@
   title: Dendritic trafficking faces physiologically critical speed-precision tradeoffs
   venue: eLife
   details: "5:e20556"
+  doi: 10.7554/elife.20556
 
 - id: dickinson2015pyrokinins
   type: journal
@@ -284,6 +301,7 @@
   title: "Distinct or shared actions of peptide family isoforms: II. Multiple pyrokinins exert similar effects in the lobster stomatogastric nervous system"
   venue: J Exp Biol
   details: "218(18): 2905-17"
+  doi: 10.1242/jeb.124818
 
 - id: karr2015dream8
   type: journal
@@ -292,6 +310,7 @@
   title: "Summary of the DREAM8 parameter estimation challenge: Toward parameter identification for whole-cell models"
   venue: PLoS Computational Biology
   details: "11(5): e1004096"
+  doi: 10.1371/journal.pcbi.1004096
 
 - id: oleary2014celltypes
   type: journal
@@ -300,6 +319,7 @@
   title: Cell types, network homeostasis and pathological compensation from a biologically plausible ion channel expression model
   venue: Neuron
   details: "82(4):809-21"
+  doi: 10.1016/j.neuron.2014.04.002
 
 - id: caplan2014temperature
   type: journal
@@ -308,6 +328,7 @@
   title: Many parameter sets in a multicompartment model oscillator are robust to temperature perturbations
   venue: J Neurosci
   details: "34(14):4963-75"
+  doi: 10.1523/jneurosci.0280-14.2014
 
 - id: williams2013neuromuscular
   type: journal
@@ -316,6 +337,7 @@
   title: The neuromuscular transform of the lobster cardiac system explains the opposing effects of a neuromodulator on muscle output
   venue: J Neurosci
   details: "33(42):16565-75"
+  doi: 10.1523/jneurosci.2903-13.2013
 
 - id: oleary2013correlations
   type: journal
@@ -324,6 +346,7 @@
   title: Correlations in ion channel expression emerge from homeostatic tuning rules
   venue: Proc Natl Acad Sci
   details: "110(28):E2645-54"
+  doi: 10.1073/pnas.1309966110
 
 - id: williams2013variability
   type: journal
@@ -332,6 +355,7 @@
   title: "Animal-to-animal variability in the phasing of the crustacean cardiac motor pattern: an experimental and computational analysis"
   venue: J Neurophysiol
   details: "109: 2451-65"
+  doi: 10.1152/jn.01010.2012
 
 # ---------------------------------------------------------------- preprints
 
@@ -343,6 +367,7 @@
   venue: bioRxiv
   details: 2026.04.22.720005
   note: Under review at Neuron
+  doi: 10.64898/2026.04.22.720005
 
 - id: he2026augmentation
   type: preprint
@@ -353,6 +378,7 @@
   details: "2605.15306"
   arxiv: "2605.15306"
   note: Under review at NeurIPS
+  doi: 10.48550/arxiv.2605.15306
 
 - id: barbosa2025shapemetrics
   type: preprint
@@ -361,6 +387,7 @@
   title: Quantifying Differences in Neural Population Activity With Shape Metrics
   venue: bioRxiv
   details: 2025.01.10.632411
+  doi: 10.1101/2025.01.10.632411
 
 # ---------------------------------------------------------------- blog posts
 

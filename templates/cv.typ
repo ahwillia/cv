@@ -97,6 +97,17 @@
   if a.trim("*") == profile.author_name { strong(a) } else { a }
 }
 
+// Link printed after a citation: `url` if set, else the DOI (journals).
+#let paper-link(p) = {
+  let url = if get(p, "url") != none { p.url } else if p.type == "journal" and get(p, "doi") != none {
+    "https://doi.org/" + p.doi
+  }
+  if url != none {
+    let label = p.at("link_label", default: "paper")
+    [ #link(url)[\[#label\]]]
+  }
+}
+
 #let citation(p) = {
   let when = if get(p, "status") != none { emph(p.status) } else {
     p.at("date_label", default: str(p.year))
@@ -112,12 +123,12 @@
     parts.push(emph(name))
     if v != none { parts.push([ (#p.venue)]) }
     parts.push([.])
-    if get(p, "url") != none { parts.push([ #link(p.url)[\[paper\]]]) }
   } else {
     parts.push(emph(p.venue))
     if get(p, "details") != none { parts.push([. #p.details]) }
     parts.push([.])
   }
+  if p.type in ("journal", "conference") { parts.push(paper-link(p)) }
   // DOIs are matching metadata; only blog posts print theirs.
   if p.type == "blog" and get(p, "doi") != none {
     let url = "https://doi.org/" + p.doi
