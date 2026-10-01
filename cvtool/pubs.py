@@ -216,6 +216,8 @@ def reconcile(entries, works, ignored, cfg) -> Result:
                     e["url"] = url
                 else:
                     yamlio.append_field(e, "url", url)
+                if e.get("link_label") == "preprint":  # now the proceedings version
+                    del e["link_label"]
                 res.urls.append((e, url))
 
         if e["type"] == "preprint" or e.get("status"):

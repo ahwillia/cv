@@ -14,6 +14,16 @@
 #   url:     link printed as [paper]; journals fall back to the DOI.
 #   link_label: text of that link, if not "paper" (e.g. "preprint").
 
+- id: he2026augmentation
+  type: conference
+  authors: [He T, Williams AH, Harvey SE]
+  status: In Press
+  title: How Data Augmentation Shapes Neural Representations
+  venue: NeurIPS
+  arxiv: "2605.15306"
+  doi: 10.48550/arxiv.2605.15306
+  link_label: preprint
+
 - id: nayebi2021explaining
   type: conference
   authors: [Nayebi A, Attinger A, Campbell MG, Hardcastle K, Low IIC, Mallory CS, Mel GC, Sorscher B, Williams AH, Ganguli S, Giocomo LM, Yamins DLK]
@@ -421,18 +431,6 @@
   details: 2026.04.22.720005
   note: Under review at Neuron
   doi: 10.64898/2026.04.22.720005
-  category: under-review
-
-- id: he2026augmentation
-  type: preprint
-  authors: [He T, Williams AH, Harvey SE]
-  year: 2026
-  title: How Data Augmentation Shapes Neural Representations
-  venue: arXiv
-  details: "2605.15306"
-  arxiv: "2605.15306"
-  note: Under review at NeurIPS
-  doi: 10.48550/arxiv.2605.15306
   category: under-review
 
 - id: barbosa2025shapemetrics
