@@ -20,7 +20,8 @@
 )
 // Palatino on macOS; TeX Gyre Pagella (metric-compatible clone) in CI.
 #set text(font: ("Palatino", "Palatino Linotype", "TeX Gyre Pagella"), size: 10pt, lang: "en")
-#set par(leading: 0.42em, spacing: 0.42em)
+#set par(leading: 0.6em, spacing: 0.6em)
+#set block(spacing: 0.6em)
 #show link: set text(fill: rgb("#1155cc"))
 #show link: underline
 
@@ -29,17 +30,12 @@
 #let md(s) = if s == none { [] } else { eval(str(s), mode: "markup") }
 #let get(d, k) = d.at(k, default: none)
 
-#let section(title) = {
-  v(1.1em, weak: true)
-  align(center, text(weight: "bold", size: 11pt, upper(title)))
-  v(0.55em)
-}
+// Headings are blocks with equal space above and below.
+#let section(title) = block(above: 1.3em, below: 1.3em, width: 100%, sticky: true,
+  align(center, text(weight: "bold", size: 11pt, upper(title))))
 
-#let subsection(title) = {
-  v(0.9em, weak: true)
-  align(center, text(weight: "bold", style: "italic", size: 10.5pt, title))
-  v(0.5em)
-}
+#let subsection(title) = block(above: 1.1em, below: 1.1em, width: 100%, sticky: true,
+  align(center, text(weight: "bold", style: "italic", size: 10.5pt, title)))
 
 // A line with content on the left and a bold-italic date flush right.
 #let dated(left, right, right-style: "bold-italic") = {
@@ -50,7 +46,7 @@
   grid(columns: (1fr, auto), column-gutter: 1em, left, r)
 }
 
-#let entry-gap = v(0.95em, weak: true)
+#let entry-gap = v(1.1em, weak: true)
 
 #let position(p) = {
   dated([*#p.role.* #p.org], get(p, "dates"))
@@ -83,7 +79,7 @@
     parts.push([ #link(url, url)])
   }
   if get(p, "note") != none { parts.push([ *[#p.note]*]) }
-  par(spacing: 0.9em, parts.join())
+  par(spacing: 1.1em, parts.join())
 }
 
 // Newest first; forthcoming ("In Press") items before everything.
@@ -112,6 +108,7 @@
 ]
 #v(0.2em)
 #line(length: 100%, stroke: 0.5pt + gray)
+#v(-0.6em)
 
 // ------------------------------------------------------------------ body
 
@@ -144,10 +141,10 @@
 }
 
 #section("Peer-Reviewed Publications")
-#align(center, text(size: 9pt, weight: "bold")[
+#block(sticky: true, width: 100%, align(center, text(size: 9pt, weight: "bold")[
   \[#link(profile.scholar.url) : #profile.scholar.citations citations, h-index #profile.scholar.h_index\] \
   \*denotes equal contribution
-])
+]))
 #subsection("Journal Articles")
 #pub-list("journal")
 #subsection("Conference Proceedings")
@@ -167,5 +164,5 @@
 
 #section("Academic Duties & Community Involvement")
 #for s in service {
-  par(hanging-indent: 0.4in, spacing: 0.9em, [*#s.label:* #md(s.text)])
+  par(hanging-indent: 0.4in, spacing: 1.1em, [*#s.label:* #md(s.text)])
 }
