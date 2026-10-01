@@ -8,6 +8,13 @@
 #                except for blog posts).
 #   alt_titles: other titles the paper has appeared under (preprint, DBLP), for matching.
 
+- id: nayebi2021explaining
+  type: conference
+  authors: [Nayebi A, Attinger A, Campbell M, Hardcastle K, Low I, Mallory CS, Mel G, Sorscher B, Williams AH, Ganguli S, Giocomo LM, Yamins DLK]
+  year: 2021
+  title: Explaining heterogeneity in medial entorhinal cortex with task-driven neural networks
+  venue: Advances in Neural Information Processing Systems
+
 - id: khosla-privileged-axes
   type: journal
   authors: [Khosla M, Williams AH, McDermott J, Kanwisher N]
@@ -36,6 +43,7 @@
   title: Comprehensive characterization of human color discrimination thresholds
   venue: eLife
   details: "14:RP108943"
+  doi: 10.7554/elife.108943
 
 - id: geadah2025cllds
   type: conference
@@ -43,6 +51,7 @@
   year: 2025
   title: Modeling Neural Activity with Conditionally Linear Dynamical Systems
   venue: Advances in Neural Information Processing Systems
+  doi: 10.52202/085713-2931
 
 - id: medvedeva2025connectivity
   type: conference
@@ -50,6 +59,7 @@
   year: 2025
   title: Scalable inference of functional neural connectivity at submillisecond timescales
   venue: Advances in Neural Information Processing Systems
+  doi: 10.52202/085713-0892
 
 - id: feather2025distortions
   type: conference
@@ -104,6 +114,7 @@
   year: 2024
   title: Vocal Call Locator Benchmark (VCL'24) for localizing rodent vocalizations from multi-channel audio
   venue: "Neural Information Processing Systems: Datasets & Benchmark"
+  doi: 10.52202/079017-3375
 
 - id: zheng2024stepwise
   type: journal
@@ -112,6 +123,7 @@
   title: Perpetual step-like restructuring of hippocampal circuit dynamics
   venue: Cell Reports
   details: "43(9): 114702"
+  doi: 10.1016/j.celrep.2024.114702
 
 - id: harvey2024bures
   type: conference
@@ -141,6 +153,7 @@
   title: Unsupervised discovery of family specific vocal usage in the Mongolian gerbil
   venue: eLife
   details: "12:RP89892"
+  doi: 10.7554/elife.89892
 
 - id: nejatbakhsh2023wishart
   type: conference
@@ -158,6 +171,7 @@
   title: Spatiotemporal clustering with neyman-scott processes via connections to bayesian nonparametric mixture models
   venue: Journal of the American Statistical Association
   details: "1-14"
+  doi: 10.1080/01621459.2023.2257896
 
 - id: low2023remapping-rnn
   type: journal
@@ -166,6 +180,7 @@
   title: Remapping in a recurrent neural network model of navigation and context inference
   venue: eLife
   details: "12:RP86943"
+  doi: 10.7554/elife.86943
 
 - id: duong2023stochastic
   type: conference
@@ -198,6 +213,7 @@
   title: Statistical Neuroscience in the Single Trial Limit
   venue: Current Opinions in Neurobiology
   details: "70: 193-205"
+  doi: 10.1016/j.conb.2021.10.008
 
 - id: low2021remapping
   type: journal
@@ -206,6 +222,7 @@
   title: Dynamic and reversible remapping of network representations in an unchanging environment
   venue: Neuron
   details: "109(18):2967-2980.e11"
+  doi: 10.1016/j.neuron.2021.07.005
 
 - id: williams2020ppseq
   type: conference
@@ -231,6 +248,7 @@
   title: Unsupervised discovery of temporal sequences in high-dimensional datasets, with applications to neuroscience
   venue: eLife
   details: "8:e38471"
+  doi: 10.7554/elife.38471
 
 - id: maheswaranathan2019universality
   type: conference
@@ -256,6 +274,7 @@
   title: Unsupervised discovery of demixed, low-dimensional neural dynamics across multiple timescales through tensor components analysis
   venue: Neuron
   details: "98(6):1099–1115.e8"
+  doi: 10.1016/j.neuron.2018.05.015
 
 - id: williams2016dendritic
   type: journal
@@ -264,6 +283,7 @@
   title: Dendritic trafficking faces physiologically critical speed-precision tradeoffs
   venue: eLife
   details: "5:e20556"
+  doi: 10.7554/elife.20556
 
 - id: dickinson2015pyrokinins
   type: journal
@@ -272,6 +292,7 @@
   title: "Distinct or shared actions of peptide family isoforms: II. Multiple pyrokinins exert similar effects in the lobster stomatogastric nervous system"
   venue: J Exp Biol
   details: "218(18): 2905-17"
+  doi: 10.1242/jeb.124818
 
 - id: karr2015dream8
   type: journal
@@ -280,6 +301,7 @@
   title: "Summary of the DREAM8 parameter estimation challenge: Toward parameter identification for whole-cell models"
   venue: PLoS Computational Biology
   details: "11(5): e1004096"
+  doi: 10.1371/journal.pcbi.1004096
 
 - id: oleary2014celltypes
   type: journal
@@ -312,6 +334,7 @@
   title: Correlations in ion channel expression emerge from homeostatic tuning rules
   venue: Proc Natl Acad Sci
   details: "110(28):E2645-54"
+  doi: 10.1073/pnas.1309966110
 
 - id: williams2013variability
   type: journal
@@ -320,8 +343,72 @@
   title: "Animal-to-animal variability in the phasing of the crustacean cardiac motor pattern: an experimental and computational analysis"
   venue: J Neurophysiol
   details: "109: 2451-65"
+  doi: 10.1152/jn.01010.2012
 
 # ---------------------------------------------------------------- preprints
+
+- id: zempolich2026shared
+  type: preprint
+  authors: [Zempolich G, Zhou W, Holey BE, Williams AH, Schneider DM]
+  year: 2026
+  title: A shared cortical manifold links sensory error to motor planning
+  venue: bioRxiv
+  details: 2026.08.02.742317
+  doi: 10.64898/2026.08.02.742317
+
+- id: williams2026bits
+  type: preprint
+  authors: [Williams AH]
+  year: 2026
+  title: 'Bits per Spike as a Betting Game: An Interpretable Unit for Held-Out Log-Likelihood in Neural Data Analysis'
+  venue: arXiv
+  details: '2607.28779'
+  doi: 10.48550/arxiv.2607.28779
+
+- id: hosseini2026modulating
+  type: preprint
+  authors: [Hosseini EA, Cheung B, Fedorenko EG, Williams AH]
+  year: 2026
+  title: Modulating Cross-Modal Convergence with Single-Stimulus, Intra-Modal Dispersion
+  venue: arXiv
+  details: '2604.21836'
+  doi: 10.48550/arxiv.2604.21836
+
+- id: zheng2025labels
+  type: preprint
+  authors: [Zheng Z, Zutshi I, Huszár R, Zhang Y, Karadas M, Buzsáki G, Williams AH]
+  year: 2025
+  title: 'From labels to latents: revealing state-dependent hippocampal computations with Jump Latent Variable Model'
+  venue: bioRxiv
+  details: 2025.12.14.694183
+  doi: 10.64898/2025.12.14.694183
+
+- id: larsen2024tensor
+  type: preprint
+  authors: [Larsen BW, Kolda TG, Zhang AR, Williams AH]
+  year: 2024
+  title: 'Tensor Decomposition Meets RKHS: Efficient Algorithms for Smooth and Misaligned Data'
+  venue: arXiv
+  details: '2408.05677'
+  doi: 10.48550/arxiv.2408.05677
+
+- id: sorokin2020thalamic
+  type: preprint
+  authors: [Sorokin JM, Williams AH, Ganguli S, Huguenard JR]
+  year: 2020
+  title: Thalamic activity patterns unfolding over multiple time scales predict seizure onset in absence epilepsy
+  venue: bioRxiv
+  details: 2020.03.04.976688
+  doi: 10.1101/2020.03.04.976688
+
+- id: williams2020combining
+  type: preprint
+  authors: [Williams AH]
+  year: 2020
+  title: Combining tensor decomposition and time warping models for multi-neuronal spike train analysis
+  venue: bioRxiv
+  details: 2020.03.02.974014
+  doi: 10.1101/2020.03.02.974014
 
 - id: garon2026fidelity
   type: preprint
@@ -331,6 +418,7 @@
   venue: bioRxiv
   details: 2026.04.22.720005
   note: Under review at Neuron
+  doi: 10.64898/2026.04.22.720005
 
 - id: he2026augmentation
   type: preprint
@@ -341,6 +429,7 @@
   details: "2605.15306"
   arxiv: "2605.15306"
   note: Under review at NeurIPS
+  doi: 10.48550/arxiv.2605.15306
 
 - id: barbosa2025shapemetrics
   type: preprint
@@ -349,6 +438,7 @@
   title: Quantifying Differences in Neural Population Activity With Shape Metrics
   venue: bioRxiv
   details: 2025.01.10.632411
+  doi: 10.1101/2025.01.10.632411
 
 # ---------------------------------------------------------------- blog posts
 
