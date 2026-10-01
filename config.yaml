@@ -11,3 +11,17 @@ publications:
   min_year: 2020
   # Title similarity (0-1) above which two records are the same paper.
   title_match: 0.88
+  # Venues (regex) that make an OpenAlex record a conference paper.
+  conference_venues: ["Neural Information Processing", "Learning Representations", "Machine Learning Research", "^International Conference", "^Proceedings of the .*Conference"]
+  # DBLP short venue names -> names used on the CV.
+  venue_names:
+    NeurIPS: Advances in Neural Information Processing Systems
+    ICLR: International Conference on Learning Representations
+    ICML: International Conference on Machine Learning
+    AISTATS: International Conference on Artificial Intelligence and Statistics
+    UAI: Conference on Uncertainty in Artificial Intelligence
+    COLT: Conference on Learning Theory
+    UniReps: Proceedings of Machine Learning Research (Unifying Representations in Neural Models)
+    TMLR: Transactions on Machine Learning Research
+    "PLoS Comput. Biol.": PLoS Computational Biology
+    "Neural Comput.": Neural Computation

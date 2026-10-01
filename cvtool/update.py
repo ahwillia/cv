@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 from . import pubs, yamlio
-from .sources import openalex
+from .sources import dblp, openalex
 
 ROOT = yamlio.ROOT
 DATA = yamlio.DATA
@@ -29,9 +29,12 @@ IGNORED_HEADER = """\
 PENDING_HEADER = "# Managed by cvtool.update: entries proposed in the last update PR.\n"
 
 
+KIND_LABEL = {"journal": "Journal", "conference": "Conference", "preprint": "Preprint", "blog": "Blog"}
+
+
 def fmt(e) -> str:
     when = e.get("status") or e.get("year")
-    s = f"{', '.join(e['authors'])} ({when}). {e['title']}. *{e['venue']}*"
+    s = f"**{KIND_LABEL.get(e['type'], e['type'])}.** {', '.join(e['authors'])} ({when}). {e['title']}. *{e['venue']}*"
     if e.get("details"):
         s += f". {e['details']}"
     if e.get("doi"):
@@ -41,19 +44,20 @@ def fmt(e) -> str:
 
 def report(res: pubs.Result) -> str:
     out = ["## CV update: publications", ""]
+    out += [f"> ⚠️ {w}" for w in res.warnings] + ([""] if res.warnings else [])
     if res.new:
         out += [f"### New publications ({len(res.new)})", "",
-                "Found on OpenAlex but not on the CV. **Delete any you don't want before merging** "
+                "Found on OpenAlex/DBLP but not on the CV. **Delete any you don't want before merging** "
                 "and they won't be suggested again. Check author lists for equal-contribution `*` "
-                "and venues for preprints that were later published.", ""]
+                "and that the Journal/Conference/Preprint label is right (`type:` in the YAML).", ""]
         out += [f"- [ ] `{e['id']}`: {fmt(e)}" for e in res.new] + [""]
     if res.published:
         out += [f"### Possibly published ({len(res.published)})", "",
                 "These CV entries are preprints or in press, but a published version exists. "
                 "Not changed automatically; update venue/year by hand if correct.", ""]
         for e, w in res.published:
-            out.append(f"- `{e['id']}` → *{openalex.venue_of(w)}* ({w['publication_year']}), "
-                       f"https://doi.org/{openalex.doi_of(w)}")
+            link = f", https://doi.org/{w['doi']}" if w["doi"] else ""
+            out.append(f"- `{e['id']}` → {w['kind']}: *{w['venue']}* ({w['year']}){link} [{w['source']}]")
         out.append("")
     if res.dois:
         out += [f"### DOIs filled in ({len(res.dois)})", ""]
@@ -62,7 +66,7 @@ def report(res: pubs.Result) -> str:
         out += [f"### Added to ignored.yaml ({len(res.auto_ignored)})", "",
                 "Proposed last time and removed before merging.", ""]
         out += [f"- {t}" for t in res.auto_ignored] + [""]
-    if len(out) == 2:
+    if not (res.new or res.published or res.dois or res.auto_ignored):
         out.append("No changes.")
     return "\n".join(out)
 
@@ -79,6 +83,30 @@ def absorb_rejections(entries, ignored, res: pubs.Result) -> None:
             res.auto_ignored.append(p["title"])
 
 
+def fetch_all(profile, cfg, warnings: list) -> list[dict]:
+    """Normalized works from every configured source. A failing source is
+    skipped with a warning: fewer proposals, but nothing wrong is proposed."""
+    me = profile["author_name"]
+    sources = {
+        "OpenAlex": lambda: [n for w in openalex.fetch(profile["orcid"])
+                             if (n := openalex.normalize(w, cfg, profile["orcid"], me))],
+    }
+    if profile.get("dblp_pid"):
+        sources["DBLP"] = lambda: dblp.fetch(profile["dblp_pid"], me, cfg["venue_names"])
+    works = []
+    for name, get in sources.items():
+        try:
+            got = get()
+        except Exception as exc:  # network / API errors
+            warnings.append(f"{name} unavailable ({exc}); its results are missing from this run.")
+            continue
+        print(f"{name}: {len(got)} works", file=sys.stderr)
+        works += got
+    if not works:
+        raise SystemExit("no source returned any works")
+    return works
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dry-run", action="store_true")
@@ -90,12 +118,10 @@ def main() -> int:
     entries = yamlio.load(PUBS)
     ignored = list(yamlio.load(IGNORED) or [])
 
-    works = openalex.fetch(profile["orcid"])
-    print(f"OpenAlex: {len(works)} works for ORCID {profile['orcid']}", file=sys.stderr)
-
     res = pubs.Result()
+    works = fetch_all(profile, cfg, res.warnings)
     absorb_rejections(entries, ignored, res)
-    found = pubs.reconcile(entries, works, ignored, cfg, profile["orcid"], profile["author_name"])
+    found = pubs.reconcile(entries, works, ignored, cfg)
     res.new, res.dois, res.published = found.new, found.dois, found.published
     pubs.insert_new(entries, res.new)
 

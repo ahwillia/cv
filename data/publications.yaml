@@ -1,35 +1,36 @@
 # Publications, newest first within each year (sorted by year at build time).
-#   type:    article | preprint | blog
+#   type:    journal | conference | preprint | blog
 #   authors: list in "Last Initials" form; append * for equal contribution.
 #   year:    integer; omit and set `status` (e.g. "In Press") for forthcoming work.
 #   details: volume/pages/IDs, printed after the venue.
 #   note:    printed in bold brackets after the citation.
-#   doi / arxiv: used by the updater to match against OpenAlex (not printed,
+#   doi / arxiv: used by the updater to match against OpenAlex/DBLP (not printed,
 #                except for blog posts).
+#   alt_titles: other titles the paper has appeared under (preprint, DBLP), for matching.
 
 - id: khosla-privileged-axes
-  type: article
+  type: journal
   authors: [Khosla M, Williams AH, McDermott J, Kanwisher N]
   status: In Press
   title: Privileged representational axes in biological and artificial neural networks
   venue: Nature Human Behavior
 
 - id: kapoor2026partial
-  type: article
+  type: conference
   authors: [Kapoor C, Williams AH, Khosla M]
   year: 2026
   title: Partial Soft-Matching Distance for Neural Representational Comparison with Partial Unit Correspondence
   venue: International Conference on Learning Representations
 
 - id: martinez2026qmc
-  type: article
+  type: conference
   authors: [Martinez M, Williams AH]
   year: 2026
   title: Quasi Monte Carlo methods enable extremely low-dimensional deep generative models
   venue: International Conference on Learning Representations
 
 - id: hong2025color
-  type: article
+  type: journal
   authors: [Hong F, Bouhassira R, Chow J, Sanders C, Shvartsman M, Guan P, Williams AH, Brainard DH]
   year: 2025
   title: Comprehensive characterization of human color discrimination thresholds
@@ -37,28 +38,28 @@
   details: "14:RP108943"
 
 - id: geadah2025cllds
-  type: article
+  type: conference
   authors: [Geadah V, Nejatbakhsh A, Lipshutz D, Pillow JW, Williams AH]
   year: 2025
   title: Modeling Neural Activity with Conditionally Linear Dynamical Systems
   venue: Advances in Neural Information Processing Systems
 
 - id: medvedeva2025connectivity
-  type: article
+  type: conference
   authors: [Medvedeva A, Balzani E, Williams AH, Keeley SL]
   year: 2025
   title: Scalable inference of functional neural connectivity at submillisecond timescales
   venue: Advances in Neural Information Processing Systems
 
 - id: feather2025distortions
-  type: article
+  type: conference
   authors: [Feather J, Lipshutz D, Harvey SE, Williams AH, Simoncelli EP]
   year: 2025
   title: Discriminating image representations with principal distortions
   venue: International Conference on Learning Representations
 
 - id: nejatbakhsh2025noisy
-  type: article
+  type: conference
   authors: [Nejatbakhsh A, Geadah V, Williams AH, Lipshutz D]
   year: 2025
   title: Comparing noisy neural population dynamics using optimal transport distances
@@ -66,14 +67,14 @@
   note: Selected for oral presentation. Top ~1.8% of submissions.
 
 - id: wu2025pose
-  type: article
+  type: conference
   authors: [Wu JH, Koneru H, Ravenel JR, Sabath A, Roach JM, Lim SS, Tadross MR, Williams AH, Dunn TW]
   year: 2025
   title: Disentangling 3D Animal Pose Dynamics with Scrubbed Conditional Latent Variables
   venue: International Conference on Learning Representations
 
 - id: zutshi2025hippocampal
-  type: article
+  type: journal
   authors: [Zutshi I, Apostolelli A, Yang W, Zheng Z, Dohi T, Balzani E, Williams AH, Savin C, Buzsáki G]
   year: 2025
   title: Hippocampal neuronal activity is aligned with action plans
@@ -82,7 +83,7 @@
   doi: 10.1038/s41586-024-08397-7
 
 - id: harvey2024decodable
-  type: article
+  type: conference
   authors: [Harvey SE, Lipshutz D, Williams AH]
   year: 2024
   title: What Representational Similarity Measures Imply about Decodable Information
@@ -90,7 +91,7 @@
   details: "PMLR 285:140-151, 2024"
 
 - id: williams2024equivalence
-  type: article
+  type: conference
   authors: [Williams AH]
   year: 2024
   title: Equivalence between representational similarity analysis, centered kernel alignment, and canonical correlations analysis
@@ -98,14 +99,14 @@
   details: "PMLR 285:10-23, 2024"
 
 - id: peterson2024vcl
-  type: article
+  type: conference
   authors: [Peterson RE*, Tanelus A*, Ick CA, Mimica B, Francis MJN, Ivan VJ, Choudhri A, Falkner A, Murthy M, Schneider DM, Sanes DH, Williams AH]
   year: 2024
   title: Vocal Call Locator Benchmark (VCL'24) for localizing rodent vocalizations from multi-channel audio
   venue: "Neural Information Processing Systems: Datasets & Benchmark"
 
 - id: zheng2024stepwise
-  type: article
+  type: journal
   authors: [Zheng Z, Huszár R, Hainmueller T, Bartos M, Williams AH*, Buzsáki G*]
   year: 2024
   title: Perpetual step-like restructuring of hippocampal circuit dynamics
@@ -113,28 +114,28 @@
   details: "43(9): 114702"
 
 - id: harvey2024bures
-  type: article
+  type: conference
   authors: [Harvey S, Larsen B, Williams AH]
   year: 2024
   title: Duality of Bures and Shape Distances with Implications for Comparing Neural Representations
   venue: Proceedings of Machine Learning Research (Unifying Representations in Neural Models)
 
 - id: khosla2024softmatching
-  type: article
+  type: conference
   authors: [Khosla M, Williams AH]
   year: 2024
   title: "Soft Matching Distance: A metric on neural representations that captures single-neuron tuning"
   venue: Proceedings of Machine Learning Research (Unifying Representations in Neural Models)
 
 - id: pospisil2024shape
-  type: article
+  type: conference
   authors: [Pospisil DA, Larsen BW, Harvey SE, Williams AH]
   year: 2024
   title: Estimating Shape Distances on Neural Representations with Limited Samples
   venue: International Conference on Learning Representations (ICLR)
 
 - id: peterson2023gerbil
-  type: article
+  type: journal
   authors: [Peterson RE, Choudhri A, Mitelut C, Tanelus A, Capo-Battaglia A, Williams AH, Schneider DM, Sanes DH]
   year: 2023
   title: Unsupervised discovery of family specific vocal usage in the Mongolian gerbil
@@ -142,15 +143,16 @@
   details: "12:RP89892"
 
 - id: nejatbakhsh2023wishart
-  type: article
+  type: conference
   authors: [Nejatbakhsh A, Garon I, Williams AH]
   year: 2023
   title: Estimating noise correlations in neural populations with Wishart processes
   venue: Advances in Neural Information Processing Systems
   details: "36, 54032-54045"
+  alt_titles: [Estimating Noise Correlations Across Continuous Conditions With Wishart Processes]
 
 - id: wang2023neymanscott
-  type: article
+  type: journal
   authors: [Wang Y, Degleris A, Williams AH, Linderman SW]
   year: 2023
   title: Spatiotemporal clustering with neyman-scott processes via connections to bayesian nonparametric mixture models
@@ -158,7 +160,7 @@
   details: "1-14"
 
 - id: low2023remapping-rnn
-  type: article
+  type: journal
   authors: [Low IIC, Giocomo LM, Williams AH]
   year: 2023
   title: Remapping in a recurrent neural network model of navigation and context inference
@@ -166,7 +168,7 @@
   details: "12:RP86943"
 
 - id: duong2023stochastic
-  type: article
+  type: conference
   authors: [Duong LR, Zhou J, Nassar J, Berman J, Olieslagers J, Williams AH]
   year: 2023
   title: Representational dissimilarity metric spaces for stochastic neural networks
@@ -174,7 +176,7 @@
   details: Kigali, Rwanda
 
 - id: costacurta2022warhmm
-  type: article
+  type: conference
   authors: [Costacurta JC, Duncker L, Sheffer B, Gillis W, Weinreb C, Markowitz JE, Datta SR, Williams AH, Linderman SW]
   year: 2022
   title: Distinguishing discrete and continuous behavioral variability using warped autoregressive HMMs
@@ -182,7 +184,7 @@
   details: "35, 23838-23850"
 
 - id: williams2021shape
-  type: article
+  type: conference
   authors: [Williams AH, Kunz E, Kornblith S, Linderman SW]
   year: 2021
   title: Generalized Shape Metrics on Neural Representations
@@ -190,7 +192,7 @@
   details: "34, 4738-4750"
 
 - id: williams2021singletrial
-  type: article
+  type: journal
   authors: [Williams AH, Linderman SW]
   year: 2021
   title: Statistical Neuroscience in the Single Trial Limit
@@ -198,7 +200,7 @@
   details: "70: 193-205"
 
 - id: low2021remapping
-  type: article
+  type: journal
   authors: [Low IIC, Williams AH, Campbell MG, Linderman SW, Giocomo LM]
   year: 2021
   title: Dynamic and reversible remapping of network representations in an unchanging environment
@@ -206,7 +208,7 @@
   details: "109(18):2967-2980.e11"
 
 - id: williams2020ppseq
-  type: article
+  type: conference
   authors: [Williams AH, Degleris A, Wang Y, Linderman SW]
   year: 2020
   title: Point process models for sequence detection in high-dimensional neural spike trains
@@ -215,7 +217,7 @@
   note: Selected for oral presentation. Top 105 of 9454 submissions.
 
 - id: williams2020timewarp
-  type: article
+  type: journal
   authors: [Williams AH, Poole B, Maheswaranathan N, Dhawale AK, Fisher T, Wilson CD, Brann DH, Trautmann E, Ryu S, Shusterman R, Rinberg D, Ölveczky BP, Shenoy KV, Ganguli S]
   year: 2020
   title: Discovering precise temporal patterns in large-scale neural recordings through robust and interpretable time warping
@@ -223,7 +225,7 @@
   details: "105(2):246-259.e8"
 
 - id: mackevicius2019seqnmf
-  type: article
+  type: journal
   authors: [Mackevicius EL*, Bahle AH*, Williams AH, Gu S, Denissenko NI, Goldman MS, Fee MS]
   year: 2019
   title: Unsupervised discovery of temporal sequences in high-dimensional datasets, with applications to neuroscience
@@ -231,7 +233,7 @@
   details: "8:e38471"
 
 - id: maheswaranathan2019universality
-  type: article
+  type: conference
   authors: [Maheswaranathan N*, Williams AH*, Golub MD, Ganguli S, Sussillo D]
   year: 2019
   title: Universality and individuality in neural dynamics across large populations of recurrent networks
@@ -240,7 +242,7 @@
   note: Selected for spotlight talk. Top 200 of 6743 submissions.
 
 - id: maheswaranathan2019sentiment
-  type: article
+  type: conference
   authors: [Maheswaranathan N*, Williams AH*, Golub MD, Ganguli S, Sussillo D]
   year: 2019
   title: Reverse engineering recurrent networks for sentiment classification reveals line attractor dynamics
@@ -248,7 +250,7 @@
   details: "32"
 
 - id: williams2018tca
-  type: article
+  type: journal
   authors: [Williams AH, Kim TH, Wang F, Vyas S, Ryu SI, Shenoy KV, Schnitzer M, Kolda TG, Ganguli S]
   year: 2018
   title: Unsupervised discovery of demixed, low-dimensional neural dynamics across multiple timescales through tensor components analysis
@@ -256,7 +258,7 @@
   details: "98(6):1099–1115.e8"
 
 - id: williams2016dendritic
-  type: article
+  type: journal
   authors: [Williams AH, O’Donnell C, Sejnowski T, O’Leary T]
   year: 2016
   title: Dendritic trafficking faces physiologically critical speed-precision tradeoffs
@@ -264,7 +266,7 @@
   details: "5:e20556"
 
 - id: dickinson2015pyrokinins
-  type: article
+  type: journal
   authors: [Dickinson PS, Kurland SC, Qu X, Parker BO, Sreekrishnan A, Kwiatkowski MA, Williams AH, Ysasi AB, Christie AE]
   year: 2015
   title: "Distinct or shared actions of peptide family isoforms: II. Multiple pyrokinins exert similar effects in the lobster stomatogastric nervous system"
@@ -272,7 +274,7 @@
   details: "218(18): 2905-17"
 
 - id: karr2015dream8
-  type: article
+  type: journal
   authors: [Karr JR, Williams AH, Zucker JD, Raue A, Steiert B, Timmer J, Kreutz C, DREAM8 Parameter Estimation Challenge Consortium, Wilkinson S, Allgood BA, Bot BM, Hoff BR, Kellen MR, Covert MW, Stolovitzky GA, Meyer P]
   year: 2015
   title: "Summary of the DREAM8 parameter estimation challenge: Toward parameter identification for whole-cell models"
@@ -280,7 +282,7 @@
   details: "11(5): e1004096"
 
 - id: oleary2014celltypes
-  type: article
+  type: journal
   authors: [O’Leary T, Williams AH, Franci A, Marder E]
   year: 2014
   title: Cell types, network homeostasis and pathological compensation from a biologically plausible ion channel expression model
@@ -288,7 +290,7 @@
   details: "82(4):809-21"
 
 - id: caplan2014temperature
-  type: article
+  type: journal
   authors: [Caplan JS, Williams AH, Marder E]
   year: 2014
   title: Many parameter sets in a multicompartment model oscillator are robust to temperature perturbations
@@ -296,7 +298,7 @@
   details: "34(14):4963-75"
 
 - id: williams2013neuromuscular
-  type: article
+  type: journal
   authors: [Williams AH, Calkins A, O’Leary T, Symonds R, Marder E, Dickinson PS]
   year: 2013
   title: The neuromuscular transform of the lobster cardiac system explains the opposing effects of a neuromodulator on muscle output
@@ -304,7 +306,7 @@
   details: "33(42):16565-75"
 
 - id: oleary2013correlations
-  type: article
+  type: journal
   authors: [O’Leary T, Williams AH, Caplan J, Marder E]
   year: 2013
   title: Correlations in ion channel expression emerge from homeostatic tuning rules
@@ -312,7 +314,7 @@
   details: "110(28):E2645-54"
 
 - id: williams2013variability
-  type: article
+  type: journal
   authors: [Williams AH, Kwiatkowski MA, Mortimer AL, Marder E, Zeeman ML, Dickinson PS]
   year: 2013
   title: "Animal-to-animal variability in the phasing of the crustacean cardiac motor pattern: an experimental and computational analysis"

@@ -7,13 +7,15 @@ uv run python -m cvtool.build          # -> build/cv.pdf
 uv run python -m cvtool.build --png    # -> build/page-N.png previews
 ```
 
+Publications are grouped by `type`: journal, conference, preprint, blog.
 Fields documented as "Typst markup" accept `_italic_` and `*bold*`.
 On push to `main`, GitHub Actions rebuilds the PDF and attaches it to the `latest` release.
 
 ## Automatic updates
 
 `uv run python -m cvtool.update` pulls works linked to the ORCID iD in
-`data/profile.yaml` from [OpenAlex](https://openalex.org), then:
+`data/profile.yaml` from [OpenAlex](https://openalex.org) (journals, preprints)
+and the `dblp_pid` from [DBLP](https://dblp.org) (conference papers), then:
 
 - adds papers not yet on the CV (from `min_year` in `config.yaml` onward),
 - fills in missing DOIs (used for matching; not printed),

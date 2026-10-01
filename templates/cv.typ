@@ -35,9 +35,16 @@
   v(0.55em)
 }
 
+#let subsection(title) = {
+  v(0.9em, weak: true)
+  align(center, text(weight: "bold", style: "italic", size: 10.5pt, title))
+  v(0.5em)
+}
+
 // A line with content on the left and a bold-italic date flush right.
 #let dated(left, right, right-style: "bold-italic") = {
-  let r = if right == none { [] } else if right-style == "plain" { [#right] } else {
+  if right == none { return block(left) }
+  let r = if right-style == "plain" { [#right] } else {
     text(style: "italic", weight: "bold", right)
   }
   grid(columns: (1fr, auto), column-gutter: 1em, left, r)
@@ -136,13 +143,15 @@
   md(t.detail)
 }
 
-#section("Peer-Reviewed Journal Articles & Conference Proceedings")
+#section("Peer-Reviewed Publications")
 #align(center, text(size: 9pt, weight: "bold")[
   \[#link(profile.scholar.url) : #profile.scholar.citations citations, h-index #profile.scholar.h_index\] \
   \*denotes equal contribution
 ])
-#v(0.4em)
-#pub-list("article")
+#subsection("Journal Articles")
+#pub-list("journal")
+#subsection("Conference Proceedings")
+#pub-list("conference")
 
 #section("Preprints")
 #pub-list("preprint")
