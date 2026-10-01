@@ -211,6 +211,8 @@
 }
 
 #section("Peer-Reviewed Publications")
+// Pull the Scholar note up under the heading (negative = closer).
+#v(-0.75em)
 #block(sticky: true, width: 100%, align(center, text(size: 9pt, weight: "bold")[
   \[#link(profile.scholar.url) : #profile.scholar.citations citations, h-index #profile.scholar.h_index\] \
   \*denotes equal contribution
