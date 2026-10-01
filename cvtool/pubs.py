@@ -166,12 +166,13 @@ class Result:
     new: list = field(default_factory=list)           # CommentedMap entries added
     dois: list = field(default_factory=list)          # (entry, doi)
     urls: list = field(default_factory=list)          # (entry, url)
+    details: list = field(default_factory=list)       # (entry, volume/issue/pages)
     published: list = field(default_factory=list)     # (entry, work)
     auto_ignored: list = field(default_factory=list)  # titles
     warnings: list = field(default_factory=list)
 
     def changed(self) -> bool:
-        return bool(self.new or self.dois or self.urls or self.auto_ignored)
+        return bool(self.new or self.dois or self.urls or self.details or self.auto_ignored)
 
 
 def published_doi_for(entry, paper: Paper) -> str | None:

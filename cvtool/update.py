@@ -16,7 +16,7 @@ from pathlib import Path
 from ruamel.yaml.comments import CommentedSeq
 
 from . import grants, pubs, yamlio
-from .sources import dblp, nih, openalex
+from .sources import crossref, dblp, nih, openalex
 
 ROOT = yamlio.ROOT
 DATA = yamlio.DATA
@@ -88,6 +88,9 @@ def report(res: pubs.Result, gres: grants.Result) -> str:
     if res.urls:
         out += [f"### Paper links added ({len(res.urls)})", ""]
         out += [f"- `{e['id']}` → {u}" for e, u in res.urls] + [""]
+    if res.details:
+        out += [f"### Volume/issue/pages added ({len(res.details)})", ""]
+        out += [f"- `{e['id']}` → {d}" for e, d in res.details] + [""]
     if res.dois:
         out += [f"### DOIs filled in ({len(res.dois)})", ""]
         out += [f"- `{e['id']}` → `{d}`" for e, d in res.dois] + [""]
@@ -95,7 +98,8 @@ def report(res: pubs.Result, gres: grants.Result) -> str:
         out += [f"### Added to ignored.yaml ({len(res.auto_ignored)})", "",
                 "Proposed last time and removed before merging.", ""]
         out += [f"- {t}" for t in res.auto_ignored] + [""]
-    if not (res.new or res.published or res.dois or res.urls or res.auto_ignored or gres.new or gres.changed):
+    if not (res.new or res.published or res.dois or res.urls or res.details or res.auto_ignored
+            or gres.new or gres.changed):
         out.append("No changes.")
     return "\n".join(out)
 
@@ -120,6 +124,21 @@ def absorb_rejections(pub_entries, grant_entries, ignored, res: pubs.Result) -> 
                   "reason": "removed from update PR"}
         ignored.append(ig)
         res.auto_ignored.append(p["title"])
+
+
+def fill_details(entries, res: pubs.Result) -> None:
+    """Volume/issue/pages from Crossref for published journal entries that lack them."""
+    for e in entries:
+        if e["type"] != "journal" or e.get("status") or e.get("details") or not e.get("doi"):
+            continue
+        try:
+            d = crossref.details(str(e["doi"]))
+        except Exception as exc:  # network / API errors
+            res.warnings.append(f"Crossref lookup failed for {e['id']} ({exc}).")
+            continue
+        if d:
+            e.insert(list(e.keys()).index("venue") + 1, "details", d)
+            res.details.append((e, d))
 
 
 def fetch_all(profile, cfg, venues, warnings: list) -> list[dict]:
@@ -168,6 +187,7 @@ def main() -> int:
         found = pubs.reconcile(entries, works, ignored, cfg)
         res.new, res.dois, res.published, res.urls = found.new, found.dois, found.published, found.urls
         pubs.insert_new(entries, res.new)
+        fill_details(entries, res)
 
     if args.only != "publications" and profile.get("nih_profile_id"):
         try:

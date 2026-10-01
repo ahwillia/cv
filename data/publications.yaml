@@ -5,7 +5,8 @@
 #            In Preparation. New preprints default to in-prep.
 #   authors: list in "Last Initials" form; append * for equal contribution.
 #   year:    integer; omit and set `status` (e.g. "In Press") for forthcoming work.
-#   details: volume/pages/IDs, printed after the venue.
+#   details: journals: "volume(issue):pages" (filled from Crossref when a DOI is
+#            known); preprints: the arXiv/bioRxiv ID. Printed after the venue.
 #   note:    printed in bold brackets after the citation.
 #   doi / arxiv: used by the updater to match against OpenAlex/DBLP (not printed,
 #                except for blog posts).
@@ -113,6 +114,7 @@
   year: 2025
   title: Hippocampal neuronal activity is aligned with action plans
   venue: Nature
+  details: 639(8053):153-161
   doi: 10.1038/s41586-024-08397-7
 
 - id: harvey2024decodable
@@ -147,7 +149,7 @@
   year: 2024
   title: Perpetual step-like restructuring of hippocampal circuit dynamics
   venue: Cell Reports
-  details: "43(9): 114702"
+  details: "43(9):114702"
   doi: 10.1016/j.celrep.2024.114702
 
 - id: harvey2024bures
@@ -198,7 +200,7 @@
   year: 2023
   title: Spatiotemporal clustering with neyman-scott processes via connections to bayesian nonparametric mixture models
   venue: Journal of the American Statistical Association
-  details: "1-14"
+  details: "119(547):2382-2395"
   doi: 10.1080/01621459.2023.2257896
 
 - id: low2023remapping-rnn
@@ -240,7 +242,7 @@
   year: 2021
   title: Statistical Neuroscience in the Single Trial Limit
   venue: Current Opinions in Neurobiology
-  details: "70: 193-205"
+  details: "70:193-205"
   doi: 10.1016/j.conb.2021.10.008
 
 - id: low2021remapping
@@ -302,7 +304,7 @@
   year: 2018
   title: Unsupervised discovery of demixed, low-dimensional neural dynamics across multiple timescales through tensor components analysis
   venue: Neuron
-  details: "98(6):1099–1115.e8"
+  details: "98(6):1099-1115.e8"
   doi: 10.1016/j.neuron.2018.05.015
 
 - id: williams2016dendritic
@@ -320,7 +322,7 @@
   year: 2015
   title: "Distinct or shared actions of peptide family isoforms: II. Multiple pyrokinins exert similar effects in the lobster stomatogastric nervous system"
   venue: J Exp Biol
-  details: "218(18): 2905-17"
+  details: "218(18):2905-2917"
   doi: 10.1242/jeb.124818
 
 - id: karr2015dream8
@@ -329,7 +331,7 @@
   year: 2015
   title: "Summary of the DREAM8 parameter estimation challenge: Toward parameter identification for whole-cell models"
   venue: PLoS Computational Biology
-  details: "11(5): e1004096"
+  details: "11(5):e1004096"
   doi: 10.1371/journal.pcbi.1004096
 
 - id: oleary2014celltypes
@@ -338,7 +340,7 @@
   year: 2014
   title: Cell types, network homeostasis and pathological compensation from a biologically plausible ion channel expression model
   venue: Neuron
-  details: "82(4):809-21"
+  details: "82(4):809-821"
   doi: 10.1016/j.neuron.2014.04.002
 
 - id: caplan2014temperature
@@ -347,7 +349,7 @@
   year: 2014
   title: Many parameter sets in a multicompartment model oscillator are robust to temperature perturbations
   venue: J Neurosci
-  details: "34(14):4963-75"
+  details: "34(14):4963-4975"
   doi: 10.1523/jneurosci.0280-14.2014
 
 - id: williams2013neuromuscular
@@ -356,7 +358,7 @@
   year: 2013
   title: The neuromuscular transform of the lobster cardiac system explains the opposing effects of a neuromodulator on muscle output
   venue: J Neurosci
-  details: "33(42):16565-75"
+  details: "33(42):16565-16575"
   doi: 10.1523/jneurosci.2903-13.2013
 
 - id: oleary2013correlations
@@ -365,7 +367,7 @@
   year: 2013
   title: Correlations in ion channel expression emerge from homeostatic tuning rules
   venue: Proc Natl Acad Sci
-  details: "110(28):E2645-54"
+  details: "110(28):E2645-E2654"
   doi: 10.1073/pnas.1309966110
 
 - id: williams2013variability
@@ -374,7 +376,7 @@
   year: 2013
   title: "Animal-to-animal variability in the phasing of the crustacean cardiac motor pattern: an experimental and computational analysis"
   venue: J Neurophysiol
-  details: "109: 2451-65"
+  details: "109(10):2451-2465"
   doi: 10.1152/jn.01010.2012
 
 # ---------------------------------------------------------------- preprints

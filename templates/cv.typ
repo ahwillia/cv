@@ -134,7 +134,11 @@
     parts.push([.])
   } else {
     parts.push(emph(p.venue))
-    if get(p, "details") != none { parts.push([. #p.details]) }
+    if get(p, "details") != none {
+      // Journals: page ranges typeset with an en dash (data keeps plain hyphens).
+      let d = if p.type == "journal" { str(p.details).replace("-", "–") } else { p.details }
+      parts.push([. #d])
+    }
     parts.push([.])
   }
   if p.type in ("journal", "conference", "preprint") { parts.push(paper-link(p)) }
