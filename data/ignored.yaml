@@ -1,0 +1,4 @@
+# Works the updater should never propose: {title, dois: [...], reason}.
+# Filled automatically when you delete a proposed entry from an update PR;
+# you can also add entries by hand.
+[]

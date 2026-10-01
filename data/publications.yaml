@@ -4,7 +4,8 @@
 #   year:    integer; omit and set `status` (e.g. "In Press") for forthcoming work.
 #   details: volume/pages/IDs, printed after the venue.
 #   note:    printed in bold brackets after the citation.
-#   doi / arxiv: used by the fetchers to match against ORCID.
+#   doi / arxiv: used by the updater to match against OpenAlex (not printed,
+#                except for blog posts).
 
 - id: khosla-privileged-axes
   type: article
@@ -77,6 +78,7 @@
   year: 2025
   title: Hippocampal neuronal activity is aligned with action plans
   venue: Nature
+  details: doi:10.1038/s41586-024-08397-7
   doi: 10.1038/s41586-024-08397-7
 
 - id: harvey2024decodable

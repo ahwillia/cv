@@ -70,7 +70,8 @@
   parts.push(emph(p.venue))
   if get(p, "details") != none { parts.push([. #p.details]) }
   parts.push([.])
-  if get(p, "doi") != none {
+  // DOIs are matching metadata; only blog posts print theirs.
+  if p.type == "blog" and get(p, "doi") != none {
     let url = "https://doi.org/" + p.doi
     parts.push([ #link(url, url)])
   }

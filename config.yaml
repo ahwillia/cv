@@ -1,0 +1,13 @@
+# Settings for the automatic updater (python -m cvtool.update).
+
+publications:
+  # OpenAlex work types never proposed for the CV.
+  exclude_types: [peer-review, software, dataset, reference-entry, conference-abstract, erratum, paratext, editorial, retraction]
+  # Venues whose items are abstracts rather than papers.
+  exclude_venues: [Journal of Vision, BMC Neuroscience]
+  # Titles matching these regexes (case-insensitive) are skipped.
+  exclude_titles: ["^author response", "^decision letter", "^reviewer #"]
+  # Only propose works from this year onward (older gaps are usually deliberate).
+  min_year: 2020
+  # Title similarity (0-1) above which two records are the same paper.
+  title_match: 0.88

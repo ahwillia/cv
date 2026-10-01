@@ -1,0 +1,74 @@
+name: Propose CV updates
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"  # Mondays 13:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  BRANCH: cv-update/auto
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+
+      # Re-running would rebuild the branch from main and discard edits made in the PR.
+      - name: Skip if an update PR is already open
+        id: open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh pr list --head "$BRANCH" --state open --json number -q length)
+          echo "count=$n" >> "$GITHUB_OUTPUT"
+          [ "$n" = "0" ] || echo "::notice::Update PR already open; review it first."
+
+      - name: Fetch publications
+        if: steps.open.outputs.count == '0'
+        run: uv run python -m cvtool.update
+
+      - name: Detect changes
+        if: steps.open.outputs.count == '0'
+        id: diff
+        run: |
+          if git diff --quiet -- data/; then echo "changed=false" >> "$GITHUB_OUTPUT"
+          else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Fetch fonts
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          mkdir -p fonts
+          curl -sSL -o pagella.zip https://www.gust.org.pl/projects/e-foundry/tex-gyre/pagella/qpl2_501otf.zip
+          unzip -j -o pagella.zip '*.otf' -d fonts
+
+      - name: Build preview
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          uv run python -m cvtool.build
+          {
+            echo
+            echo "---"
+            echo "Preview PDF: download the \`cv-preview\` artifact from [this run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})."
+          } >> build/update-report.md
+
+      - uses: actions/upload-artifact@v4
+        if: steps.diff.outputs.changed == 'true'
+        with:
+          name: cv-preview
+          path: build/cv.pdf
+
+      - uses: peter-evans/create-pull-request@v7
+        if: steps.diff.outputs.changed == 'true'
+        with:
+          branch: ${{ env.BRANCH }}
+          add-paths: data/
+          commit-message: "CV update: publications from OpenAlex"
+          title: "CV update: publications"
+          body-path: build/update-report.md
+          delete-branch: true
