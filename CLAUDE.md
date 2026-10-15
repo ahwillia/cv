@@ -73,10 +73,24 @@ uv run python -m cvtool.update --dry-run   # what the updater would change; must
 - **When an in-press paper is published:** replace `status` with `year`, add
   `doi`, and remove `url` and `link_label`.
   - **Volume/pages:** if the owner gives them, enter them as `details`
-    (`vol(issue):pages`, or `vol:pages` with no issue). Otherwise leave
-    `details` out; the next update run fills it from Crossref.
+    (`vol(issue):pages`). The updater never overwrites existing `details`, so
+    ask for the issue number if the journal has issues. If the owner gives no
+    numbers, leave `details` out; the next update run fills it from Crossref.
+  - **Unverifiable DOI:** if a DOI the owner gives doesn't resolve
+    (`doi.org/api/handles/<doi>` not 200), tell them before committing.
+    New DOIs can take a few days to register.
   - **Order:** the template sorts by year only. Within a year, file order
-    decides, so move the entry next to that year's other entries. Keep its `id`.
+    decides. The updater inserts new papers at the top of the file (preprints at
+    the top of the preprint block), so file order drifts. That's harmless across
+    years; only move an entry when its order *within its year* matters. Keep its `id`.
+- **Retyping a preprint as a conference paper** (in the data or in an update PR):
+  set `type: conference` and `venue: <venues.yaml key>`. Delete `category`
+  and `details`. Set `url` to the proceedings page, or keep the arXiv link with
+  `link_label: preprint` plus `status: In Press` if the proceedings aren't out
+  yet. Keep `arxiv`/`doi` (they help matching). Add any differing proceedings
+  title to `alt_titles`. Keep the `id`.
+- **Venue names:** use the journal's official name and spelling (e.g.
+  *Nature Human Behaviour*, *Current Opinion in Neurobiology*).
 - **Same work under several titles** (e.g. arXiv vs proceedings): put the other
   titles in `alt_titles` so the updater matches them instead of proposing
   duplicates.
@@ -139,7 +153,8 @@ uv run python -m cvtool.update --dry-run   # what the updater would change; must
   `conference_note` wording). Keep those edits and match their style.
 - **Ask, don't guess:** for anything that would misstate the record, ask the
   owner. Examples: a talk dated in the future, an unclear review status, or a
-  grant missing its months or role.
+  grant missing its role. A grant with years only is fine (`start: "2025"`);
+  don't ask for months.
 - **Awards vs Grants:** prizes and personal fellowships go in awards.yaml
   (McKnight, F32 NRSA, DOE CSGF). Research funding goes in grants.yaml.
 - **Layout:** the owner cares about it (symmetric heading spacing, notes tucked
