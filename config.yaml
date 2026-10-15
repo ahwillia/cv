@@ -3,8 +3,8 @@
 publications:
   # OpenAlex work types never proposed for the CV.
   exclude_types: [peer-review, software, dataset, reference-entry, conference-abstract, erratum, paratext, editorial, retraction]
-  # Venues whose items are abstracts rather than papers.
-  exclude_venues: [Journal of Vision, BMC Neuroscience]
+  # Venues whose items are abstracts rather than papers (CCN: 2-page extended abstracts).
+  exclude_venues: [Journal of Vision, BMC Neuroscience, "Conference on Cognitive Computational Neuroscience (CCN)"]
   # Titles matching these regexes (case-insensitive) are skipped.
   exclude_titles: ["^author response", "^decision letter", "^reviewer #"]
   # Only propose works from this year onward (older gaps are usually deliberate).

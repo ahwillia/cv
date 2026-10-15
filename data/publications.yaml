@@ -8,10 +8,12 @@
 #   details: journals: "volume(issue):pages" (filled from Crossref when a DOI is
 #            known); preprints: the arXiv/bioRxiv ID. Printed after the venue.
 #   note:    printed in bold brackets after the citation.
-#   doi / arxiv: used by the updater to match against OpenAlex/DBLP (not printed,
-#                except for blog posts).
+#   venue:   journals/preprints: name as printed; conferences: a key from
+#            data/venues.yaml (NeurIPS, ICLR, ...). track: optional, conferences.
+#   doi / arxiv: identifiers; used to match OpenAlex/DBLP records and as the
+#            [paper] link target (arXiv abstract page preferred, else DOI).
 #   alt_titles: other titles the paper has appeared under (preprint, DBLP), for matching.
-#   url:     link printed as [paper]; journals fall back to the DOI.
+#   url:     link printed as [paper]; overrides arxiv/doi.
 #   link_label: text of that link, if not "paper" (e.g. "preprint").
 
 - id: he2026augmentation
@@ -56,7 +58,7 @@
   year: 2026
   title: Partial Soft-Matching Distance for Neural Representational Comparison with Partial Unit Correspondence
   venue: ICLR
-  url: https://arxiv.org/abs/2602.19331
+  url: https://proceedings.iclr.cc/paper_files/paper/2026/hash/f13d74c6666087aa6eea3d17820e6a23-Abstract-Conference.html
 
 - id: martinez2026qmc
   type: conference

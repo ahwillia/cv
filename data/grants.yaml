@@ -1,9 +1,23 @@
 # Grants, newest first. Entries with `source: nih` are kept in sync with
 # NIH RePORTER (end date, amount); add other funders by hand without `source`.
+#   id:      required, unique. NIH: the core project number (printed as the award
+#            number). Others: any slug, e.g. simons-scgb-2025 (not printed).
+#   title, agency (required): agency is printed in italics, e.g. "Simons Foundation".
+#   number:  optional award number to print (non-NIH grants).
 #   role:    PI | Contact PI | MPI | Co-I | ...
 #   contact: contact PI when you are not; with: other PIs.
-#   start/end: "YYYY-MM". amount: total awarded to date (USD).
+#   start/end: "YYYY-MM" or "YYYY" (quote them). Only the years are printed.
+#   amount:  total awarded to date (USD); printed only if grants_show_amounts.
+#   mechanism: NIH activity code (R01, U01, ...); used for filtering, not printed.
 #   detail:  optional Typst markup replacing the generated role line.
+#
+# Example hand-entered grant:
+#   - id: simons-scgb-2025
+#     title: Neural population geometry
+#     agency: Simons Foundation, Simons Collaboration on the Global Brain
+#     role: PI
+#     start: "2025"
+#     end: "2028"
 
 - id: R01DA066648
   title: Impacts of neural variability and noise on neural population codes

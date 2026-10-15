@@ -84,7 +84,10 @@
   let amount = if profile.at("grants_show_amounts", default: false) and get(g, "amount") != none {
     [ \$#commas(g.amount)]
   }
-  [_#g.agency #g.id._ #role#amount]
+  // Award number: `number` if given; NIH entries use their project id.
+  let num = g.at("number", default: if g.at("source", default: none) == "nih" { g.id } else { none })
+  let funder = if num != none { [#g.agency #num] } else { [#g.agency] }
+  [_#funder._ #role#amount]
 }
 
 #let month-year(s) = {
