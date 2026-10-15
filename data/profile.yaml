@@ -10,8 +10,8 @@ dblp_pid: 126/4222
 nih_profile_id: 15664111  # NIH RePORTER PI profile
 scholar:
   url: https://scholar.google.com/citations?user=7_GzzXMAAAAJ
-  citations: 2776
-  h_index: 23
+  citations: 3050
+  h_index: 25
 # Printed under "Conference Proceedings" (Typst markup).
 conference_note: >-
   The following are peer-reviewed articles
