@@ -2,6 +2,8 @@
 # Sorted newest first at build time.
 
 conference:
+  - date: "2026-10"
+    text: National Institute for Theory and Mathematics in Biology (NITMB), Geometry in Neuroscience Workshop. Chicago, IL.
   - date: "2026-05"
     text: CoNECTOME workshop, Keynote speaker. University of Washington. Seattle, WA.
   - date: "2026-03"
