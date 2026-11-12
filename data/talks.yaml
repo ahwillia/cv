@@ -42,6 +42,12 @@ conference:
     text: CUNY Graduate Center. Symposium on Dimensionality and Neural Dynamics. New York, New York.
 
 seminar:
+  - date: "2026-12"
+    text: Princeton University. Princeton, NJ.
+  - date: "2026-11"
+    text: University of Pennsylvania. Philadelphia, PA.
+  - date: "2026-11"
+    text: Yale University. New Haven, CT.
   - date: "2025-10"
     text: University of Chicago, Committee on Computational Neuroscience. Chicago, IL.
   - date: "2025-10"
