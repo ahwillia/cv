@@ -243,7 +243,7 @@
 ]))
 #subsection("Journal Articles")
 #pub-list("journal")
-#subsection("Conference Proceedings")
+#subsection("Peer-Reviewed Conference Papers")
 #if profile.at("conference_note", default: none) != none { pub-note(profile.conference_note) }
 #pub-list("conference")
 

@@ -26,7 +26,7 @@ font with the same letter widths.
 
 - **Publications** (`data/publications.yaml`) are grouped by `type`:
   - `journal`: Peer-Reviewed Publications > Journal Articles.
-  - `conference`: Peer-Reviewed Publications > Conference Proceedings. `venue`
+  - `conference`: Peer-Reviewed Publications > Peer-Reviewed Conference Papers. `venue`
     is a key from `data/venues.yaml`, printed as "*Full Name* (KEY)", with an
     explanatory note from `conference_note` in `profile.yaml`.
   - `preprint`: Other Manuscripts. `category` picks the subsection:
